@@ -3,7 +3,7 @@
 @source=Phono Notebook applied to ETCBC4c Data
 @valueType=str
 @writtenBy=Text-Fabric
-@dateWritten=2017-09-26T14:03:52Z
+@dateWritten=2017-09-26T20:06:58Z
 
 bᵊ
 rēšˌîṯ

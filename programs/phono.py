@@ -281,8 +281,7 @@
 
 import sys, os, collections, re
 from unicodedata import normalize
-from shutil import copytree, rmtree
-from utils import checkDiffs
+from utils import checkDiffs, deliverDataset
 from tf.fabric import Fabric
 from tf.transcription import Transcription
 
@@ -1928,21 +1927,38 @@ checkDiffs(thisSave, thisDeliver, only=set(nodeFeatures))
 # 
 # Copy the new TF features from the temporary location where they have been created to their final destination.
 
-# In[70]:
+# In[1]:
 
 
-def deliverDataset():
-    print('Copy data set to {}'.format(thisDeliver))
-    if os.path.exists(thisDeliver):
-        rmtree(thisDeliver)
-    copytree(thisSave, thisDeliver)
+deliverDataset(thisSave, thisDeliver)
 
 
-# In[71]:
+# # Stage: compile TF
+
+# In[81]:
 
 
-deliverDataset()
+def compileTfData():    
+    print('Compile and test')
+    TF = Fabric(locations=[coreTf, thisTf], modules=[coreModule, module])
+    api = TF.load(' '.join(nodeFeatures))
+    F = api.F
+    T = api.T
+    for v in F.otype.s('verse')[0:10]:
+        print('{} {}:{}\n\t{}\n'.format(*T.sectionFromNode(v), T.text(L.d(v, 'word'), fmt='text-phono-full')))
 
+
+# In[82]:
+
+
+compileTfData()
+
+
+# # End of pipeline
+# 
+# If this notebook is run with the purpose of generating data, this is the end then.
+# 
+# After this tests and examples are run.
 
 # In[ ]:
 
