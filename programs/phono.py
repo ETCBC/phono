@@ -276,21 +276,22 @@
 
 # # Load the modules
 
-# In[69]:
+# In[1]:
 
 
 import sys, os, collections, re
 from unicodedata import normalize
-from utils import checkDiffs, deliverDataset
+import utils
 from tf.fabric import Fabric
 from tf.transcription import Transcription
 
 
-# In[72]:
+# In[2]:
 
 
 if 'SCRIPT' not in locals():
     SCRIPT = False
+    FORCE = True
     CORE_NAME = 'bhsa'
     VERSION= 'd'
     CORE_MODULE = 'core'
@@ -332,24 +333,25 @@ thisDeliver = '{}/{}'.format(thisTf, module)
 # Check whether this conversion is needed in the first place.
 # Only when run as a script.
 
-# In[ ]:
+# In[4]:
 
 
 if SCRIPT:
-    (good, work) = MUSTRUN(None, '{}/.tf/{}.tfx'.format(thisDeliver, 'phono'))
+    (good, work) = utils.mustRun(None, '{}/.tf/{}.tfx'.format(thisDeliver, 'phono'), force=FORCE)
     if not good: stop(good=False)
     if not work: stop(good=True)
 
 
 # # Load the TF data
 
-# In[4]:
+# In[5]:
 
 
+utils.caption(4, 'Load the existing TF dataset')
 TF = Fabric(locations=coreTf, modules=coreModule)
 
 
-# In[5]:
+# In[6]:
 
 
 api = TF.load('''
@@ -372,7 +374,7 @@ api.makeAvailableIn(globals())
 
 # ## Patterns
 
-# In[6]:
+# In[7]:
 
 
 # punctuation
@@ -441,7 +443,7 @@ def set_pet_pattern_repl(match):
 
 # ## Actions
 
-# In[7]:
+# In[8]:
 
 
 def get_orig(w, punct=True, set_pet=False, tetra=True, give_ketiv=False):
@@ -528,7 +530,7 @@ def partition_w(wnodes):
 # 
 # This is especially important for, but not only for, the BGDKPT letters.
 
-# In[8]:
+# In[9]:
 
 
 specials = (
@@ -620,7 +622,7 @@ specials2 = (
 # 
 # The ``sound_dict`` is the resultig (ordered) mapping of all source characters to "phonetic" characters.
 
-# In[9]:
+# In[10]:
 
 
 dagesh_lenes = {'b.', 'g.', 'd.', 'k.', 'p.', 't.'}
@@ -735,7 +737,7 @@ for (sym, let, glyph) in specials2:
 # 
 # Python lacks *possessive* quantifiers in regular expressions, so again, this makes some expressions below more complicated than they were otherwise.
 
-# In[10]:
+# In[11]:
 
 
 # We want to test for vowels in look-behind conditions.
@@ -795,7 +797,7 @@ acc = '[ˈˌ]'                              # primary and secundary accent
 # 
 # If there is an accent on the guttural, we ignore it in these cases, because the guttural does not initiate a syllable.
 
-# In[11]:
+# In[12]:
 
 
 # rafe
@@ -817,7 +819,7 @@ def furtive_patah_repl(match):
 # 
 # ### Patterns
 
-# In[12]:
+# In[13]:
 
 
 # explicit accents
@@ -870,7 +872,7 @@ def verse_end_phono_repl(match):
 
 # ### Actions
 
-# In[13]:
+# In[14]:
 
 
 stats = collections.Counter()
@@ -934,7 +936,7 @@ def doaccents(orig, debug=False, count=False):
 # 
 # ### Patterns
 
-# In[14]:
+# In[15]:
 
 
 # qamets qatan  
@@ -1008,7 +1010,7 @@ def qamets_qatan_verb_x_repl(match):
 # Here is the function that carries out rule based qamets qatan detection, without going into
 # verb paradigms and exceptions. It is the first go at it.
 
-# In[15]:
+# In[16]:
 
 
 def doplainqamets(word, accentless=False, debug=False, count=False):
@@ -1068,7 +1070,7 @@ def doplainqamets(word, accentless=False, debug=False, count=False):
 # As to rule 4, there are cases where the schwa in question is also followed by a final consonant with schwa.
 # In those cases it seems that the schwa in question is silent.
 
-# In[16]:
+# In[17]:
 
 
 # mobile schwa
@@ -1120,7 +1122,7 @@ def dages_forte_repl(match):
 
 # ## Mater lectionis and final fixes
 
-# In[17]:
+# In[18]:
 
 
 # silent aleph
@@ -1171,7 +1173,7 @@ def fixit_w_repl(match):
 # 
 # The ``phono()`` function that carries out the complete transliteration, looks by default in ``qamets_corrections``, but this can be overridden. These corrections will not be carried out for the special verb cases.
 
-# In[18]:
+# In[19]:
 
 
 qamets_corrections = {} # list of translits that must be corrected
@@ -1202,7 +1204,7 @@ def apply_corr(wordq, corr):
 # 
 # We need concise, normalized values for the lexical features.
 
-# In[19]:
+# In[20]:
 
 
 undefs = {'NA', 'unknown', 'n/a', 'absent'}
@@ -1229,7 +1231,7 @@ png['n/a'] = '-'
 # 
 # We need a label for lexical information such as part of speech, person, number, gender.
 
-# In[20]:
+# In[21]:
 
 
 declensed = {'subs', 'nmpr', 'adjv', 'prps', 'prde', 'prin'}
@@ -1266,7 +1268,7 @@ def get_prs(lex_info):
 # 
 # ## Phono parts
 
-# In[21]:
+# In[22]:
 
 
 interesting_stats = [
@@ -1277,7 +1279,7 @@ interesting_stats = [
 ]
 
 
-# In[22]:
+# In[23]:
 
 
 # if suppress_in_verb, phono will suppress qatan interpretation in certain verb paradigmatic forms
@@ -1380,7 +1382,7 @@ def phono_qamets(
     return (result, False)
 
 
-# In[23]:
+# In[24]:
 
 
 def phono_patterns(result, debug, count, dout):
@@ -1447,7 +1449,7 @@ def phono_patterns(result, debug, count, dout):
     return result
 
 
-# In[24]:
+# In[25]:
 
 
 def phono_symbols(ws, result, debug, count, dout):
@@ -1501,7 +1503,7 @@ def phono_symbols(ws, result, debug, count, dout):
 # ## Phono whole
 # Here the rule fabrics are woven together, exceptions invoked.
 
-# In[25]:
+# In[26]:
 
 
 def phono(
@@ -1562,7 +1564,7 @@ def phono(
 # to the number of consonants found in the paradigmatic material.
 # This is rather crude, but it will do.
 
-# In[26]:
+# In[27]:
 
 
 # we need the number of letters in a defined value of a morpho feature
@@ -1589,7 +1591,7 @@ def len_morpho(w):
 # 
 # Next, we reduce the vowel skeleton to a skeleton pattern. We are not interested in all vowels, only in whether the vowel is a qamets (gadol or qatan), A-like, O-like, or other (which we dub E-like).
 
-# In[27]:
+# In[28]:
 
 
 # the qamets gadol/qatan skeleton
@@ -1647,11 +1649,11 @@ def get_full_skel(w, debug=False):
 # 
 # ### All candidates
 
-# In[28]:
+# In[29]:
 
 
 # find lexemes which have an occurrence with a qamets (except verbs)
-info("Looking for non-verb qamets")
+utils.caption(0, '\tLooking for non-verb qamets')
 qq_words = set()
 qq_lex = collections.defaultdict(lambda: [])
 
@@ -1667,15 +1669,15 @@ for w in F.otype.s('word'):
     if word in qq_words: continue
     qq_words.add(word)
     qq_lex[lex].append(w)
-info('{} lexemes and {} unique occurrences'.format(len(qq_lex), len(qq_words)))
+utils.caption(0, '\t{} lexemes and {} unique occurrences'.format(len(qq_lex), len(qq_words)))
 
 
 # ### Filtering interesting candidates
 
-# In[29]:
+# In[30]:
 
 
-info('Filtering lexemes with varied occurrences')
+utils.caption(0, '\tFiltering lexemes with varied occurrences')
 qq_varied = collections.defaultdict(lambda: [])
 nocc = 0
 for lex in qq_lex:
@@ -1697,12 +1699,12 @@ for lex in qq_lex:
             fullskel = get_full_skel(w)
             qq_varied[lex].append((skel, fullskel, w))
             nocc += 1
-info('{} interesting lexemes with {} unique occurrences'.format(len(qq_varied), nocc))
+utils.caption(0, '\t{} interesting lexemes with {} unique occurrences'.format(len(qq_varied), nocc))
 
 
 # ### Guess the qamets
 
-# In[30]:
+# In[31]:
 
 
 qamets_qatan_xc = dict(
@@ -1734,11 +1736,11 @@ def compile_occs(lex, occs):
             old_ins = occs_compiled.get(i, '')
             new_ins = gadol if ins == 'A' else qatan
             if old_ins == new_ins:
-                info('{}: No override needed for syllable {} which is {}'.format(
+                info('\t{}: No override needed for syllable {} which is {}'.format(
                     lex, i+1, old_ins,
                 ), tm=False)
             else:
-                info('{}: Override for syllable {}: {} becomes {}'.format(
+                info('\t{}: Override for syllable {}: {} becomes {}'.format(
                     lex, i+1, old_ins, new_ins,
                 ), tm=False)
                 occs_compiled[i] = new_ins
@@ -1767,10 +1769,10 @@ def get_corr(fullskel, guess, debug=False):
 
 # ### Carrying out the guess work
 
-# In[31]:
+# In[32]:
 
 
-info('Guessing between gadol and qatan')
+utils.caption(0, '\tGuessing between gadol and qatan')
 qamets_corrections = {}
 qq_varied_remaining = set()
 ndiff_occs = 0
@@ -1791,7 +1793,7 @@ for lex in qq_varied:
             if wordq in qamets_corrections:
                 old_corr = qamets_corrections[wordq]
                 if old_corr != corr:
-                    error('Conflicting corrections for {} {} {} ({} => {}): first {} and then {}'.format(
+                    error('\t\tConflicting corrections for {} {} {} ({} => {}): first {} and then {}'.format(
                         lex, wordq, skel, fullskel, guess, old_corr, corr,
                     ))
                     nconflicts += 1
@@ -1801,18 +1803,18 @@ for lex in qq_varied:
         ndiff_lexs += 1
         ndiff_occs += this_ndiff_occs
         qq_varied_remaining.add(lex)
-info('{} lexemes with modified occurrences ({})'.format(ndiff_lexs, ndiff_occs))
-info('{} patterns with conflicts'.format(nconflicts))
+utils.caption(0, '\t{} lexemes with modified occurrences ({})'.format(ndiff_lexs, ndiff_occs))
+utils.caption(0, '\t{} patterns with conflicts'.format(nconflicts))
 
 
 # # Generate phonological data
 
-# In[50]:
+# In[34]:
 
 
 def stats_prog(): return ' '.join(str(stats.get(stat, 0)) for stat in interesting_stats)
         
-info('Generating data in two ways ... ')
+utils.caption(4, 'Generating data in two ways ... ')
 
 phono_file = []
 word_file = []
@@ -1825,7 +1827,7 @@ for v in F.otype.s('verse'):
     nv += 1
     nvc += 1
     if nvc == nchunk:
-        info('{:>5} verses {}'.format(nv, stats_prog()))
+        utils.caption(0, '\t{:>5} verses {}'.format(nv, stats_prog()))
         nvc = 0
 
     words = partition_w(L.d(v, 'word'))
@@ -1841,14 +1843,14 @@ for v in F.otype.s('verse'):
 
     if not phono_file[-1].endswith('. '): word_file.append((None, '', '+'))
 
-info('{:>5} verses done {}'.format(nv, stats_prog()))
+utils.caption(0, '\t{:>5} verses done {}'.format(nv, stats_prog()))
 for stat in sorted(stats):
     amount = stats[stat]
-    info('{:<1} {:>6} {}'.format(
+    utils.caption(0, '\t{:<1} {:>6} {}'.format(
         '#' if amount == 0 else '',
         amount,
         stat,
-    ), tm=False)
+    ))
 
 
 # ## Consistency check
@@ -1858,10 +1860,10 @@ for stat in sorted(stats):
 # 
 # They should be consistent.
 
-# In[51]:
+# In[37]:
 
 
-info("{} items in phono".format(len(phono_file)))
+utils.caption(0, '{} items in phono'.format(len(phono_file)))
 word_test = []
 info("Reading word")
 i = 0
@@ -1870,14 +1872,14 @@ for (w, mat, sep) in word_file:
     word_test.append(mat+rsep)
     if '. ' in sep or '+' in sep:
         i += 1
-info('{} lines'.format(i))
+utils.caption(0, '\t{} lines'.format(i))
 
 phono_text = ''.join(phono_file)
 word_text = ''.join(word_test)
 if phono_text != word_text:
-    error('ERROR: phono text and word info are NOT consistent', tm=False)
+    utils.caption(0, '\tERROR: phono text and word info are NOT consistent')
 else:
-    info('OK: phono text and word info are CONSISTENT', tm=False)
+    utils.caption(0, '\tOK: phono text and word info are CONSISTENT')
 
 
 # # Generating phono module for Text-Fabric
@@ -1888,17 +1890,18 @@ else:
 # We also generate a config feature `otext@phono`, which will be picked up by Text-Fabric automatically.
 # In it we define the phonetic *format*, so that Text-Fabric has can output text in phonetic representation.
 
-# In[54]:
+# In[38]:
 
 
+utils.caption(4, 'Writing TF phono features')
 nodeFeatures = dict(
     phono=dict(((ln[0], ln[1]) for ln in word_file if ln[0] != None)),
     phono_trailer=dict(((ln[0], ln[2]) for ln in word_file if ln[0] != None)),
 )
 edgeFeatures = {}
 provenance = dict(
-    source='Phono Notebook applied to ETCBC4c Data',
-    author='ETCBC4c Data: Constantijn Sikkel; Phono Notebook: Dirk Roorda',
+    source='Phono Notebook applied to BHSA Data',
+    author='BHSA Data: Constantijn Sikkel; Phono Notebook: Dirk Roorda',
 )
 metaData = {
     '': provenance,
@@ -1909,7 +1912,7 @@ metaData = {
     'phono': dict(valueType='str'),
     'phono_trailer': dict(valueType='str'),
 }
-TF = Fabric(locations=thisSave)
+TF = Fabric(locations=thisSave, silent=True)
 TF.save(nodeFeatures=nodeFeatures, edgeFeatures=edgeFeatures, metaData=metaData)
 
 
@@ -1917,41 +1920,51 @@ TF.save(nodeFeatures=nodeFeatures, edgeFeatures=edgeFeatures, metaData=metaData)
 # 
 # Check differences with previous versions.
 
-# In[60]:
+# In[39]:
 
 
-checkDiffs(thisSave, thisDeliver, only=set(nodeFeatures))
+utils.checkDiffs(thisSave, thisDeliver, only=set(nodeFeatures))
 
 
 # # Stage: Deliver 
 # 
 # Copy the new TF features from the temporary location where they have been created to their final destination.
 
-# In[1]:
+# In[40]:
 
 
-deliverDataset(thisSave, thisDeliver)
+utils.deliverDataset(thisSave, thisDeliver)
 
 
 # # Stage: compile TF
 
-# In[81]:
+# In[41]:
 
 
-def compileTfData():    
-    print('Compile and test')
-    TF = Fabric(locations=[coreTf, thisTf], modules=[coreModule, module])
-    api = TF.load(' '.join(nodeFeatures))
-    F = api.F
-    T = api.T
-    for v in F.otype.s('verse')[0:10]:
-        print('{} {}:{}\n\t{}\n'.format(*T.sectionFromNode(v), T.text(L.d(v, 'word'), fmt='text-phono-full')))
+utils.caption(4, 'Load and compile the new TF features')
+
+TF = Fabric(locations=[coreTf, thisTf], modules=[coreModule, module])
+api = TF.load(' '.format(' '.join(nodeFeatures)))
+F = api.F
+Fs = api.Fs
+T = api.T
+L = api.L
 
 
-# In[82]:
+# In[52]:
 
 
-compileTfData()
+utils.caption(4, 'Basic tests')
+
+utils.caption(4, 'First verses in phonetc transcription')
+for v in F.otype.s('verse')[0:10]:
+    utils.caption(0, '{} {}:{}'.format(*T.sectionFromNode(v)), continuation=True)
+    utils.caption(0, T.text(L.d(v, 'word'), fmt='text-phono-full'), continuation=True)
+
+utils.caption(4, 'First verse in all formats')
+for fmt in T.formats:
+    utils.caption(0, '{}'.format(fmt), continuation=True)
+    utils.caption(0, '\t{}'.format(T.text(range(1,12), fmt=fmt)), continuation=True)
 
 
 # # End of pipeline
@@ -2022,7 +2035,7 @@ def maketest(ws=None, orig=None, passageStr=None, expected=None, comment=None):
 
 # ### Formatting test results
 # 
-# Here are some HTML/CSS definitions for pretty printing test results.
+# Here are some HTML/CSS definitions for formatting test results.
 
 # In[33]:
 
