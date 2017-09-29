@@ -3,7 +3,7 @@
 @source=Phono Notebook applied to BHSA Data
 @valueType=str
 @writtenBy=Text-Fabric
-@dateWritten=2017-09-28T18:49:46Z
+@dateWritten=2017-09-29T13:51:36Z
 
 bᵊ
 rēšˌîṯ

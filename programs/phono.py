@@ -286,14 +286,18 @@ from tf.fabric import Fabric
 from tf.transcription import Transcription
 
 
-# In[2]:
+# # Pipeline
+# See [operation](https://github.com/ETCBC/pipeline/blob/master/README.md#operation) 
+# for how to run this script in the pipeline.
+
+# In[1]:
 
 
 if 'SCRIPT' not in locals():
     SCRIPT = False
     FORCE = True
     CORE_NAME = 'bhsa'
-    VERSION= 'd'
+    VERSION= 'c'
     CORE_MODULE = 'core'
 
 def stop(good=False):
@@ -1945,10 +1949,7 @@ utils.caption(4, 'Load and compile the new TF features')
 
 TF = Fabric(locations=[coreTf, thisTf], modules=[coreModule, module])
 api = TF.load(' '.format(' '.join(nodeFeatures)))
-F = api.F
-Fs = api.Fs
-T = api.T
-L = api.L
+api.makeAvailableIn(globals())
 
 
 # In[52]:
