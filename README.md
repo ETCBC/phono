@@ -1,3 +1,5 @@
+![etcbc](programs/images/etcbc.png)
+
 # Phonetic transcription
 Algorithm to determine parallel passages in the Hebrew Bible.
 
@@ -13,6 +15,8 @@ The results of this study are being delivered in several forms, summarized here.
   in **text-fabric** format;
 * **Program code**: a
   [Jupyter notebook](https://github.com/ETCBC/parallels/tree/master/programs).
+
+![tf](programs/tf-small.png)
 
 # Author
 * [Dirk Roorda](mailto:dirk.roorda@dans.knaw.nl) -
