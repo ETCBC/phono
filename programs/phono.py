@@ -290,15 +290,15 @@ from tf.transcription import Transcription
 # See [operation](https://github.com/ETCBC/pipeline/blob/master/README.md#operation) 
 # for how to run this script in the pipeline.
 
-# In[1]:
+# In[2]:
 
 
 if 'SCRIPT' not in locals():
     SCRIPT = False
     FORCE = True
     CORE_NAME = 'bhsa'
+    NAME = 'phono'
     VERSION= 'c'
-    CORE_MODULE = 'core'
 
 def stop(good=False):
     if SCRIPT: sys.exit(0 if good else 1)
@@ -317,19 +317,16 @@ def stop(good=False):
 # In[3]:
 
 
-module = 'phono'
-coreModule = CORE_MODULE
 repoBase = os.path.expanduser('~/github/etcbc')
 coreRepo = '{}/{}'.format(repoBase, CORE_NAME)
-thisRepo = '{}/{}'.format(repoBase, module)
+thisRepo = '{}/{}'.format(repoBase, NAME)
 
 coreTf = '{}/tf/{}'.format(coreRepo, VERSION)
 
 thisTemp = '{}/_temp/{}'.format(thisRepo, VERSION)
-thisSave = '{}/{}'.format(thisTemp, module)
+thisTempTf = '{}/tf'.format(thisTemp)
 
 thisTf = '{}/tf/{}'.format(thisRepo, VERSION)
-thisDeliver = '{}/{}'.format(thisTf, module)
 
 
 # # Test
@@ -341,21 +338,21 @@ thisDeliver = '{}/{}'.format(thisTf, module)
 
 
 if SCRIPT:
-    (good, work) = utils.mustRun(None, '{}/.tf/{}.tfx'.format(thisDeliver, 'phono'), force=FORCE)
+    (good, work) = utils.mustRun(None, '{}/.tf/{}.tfx'.format(thisTf, 'phono'), force=FORCE)
     if not good: stop(good=False)
     if not work: stop(good=True)
 
 
 # # Load the TF data
 
-# In[5]:
+# In[7]:
 
 
 utils.caption(4, 'Load the existing TF dataset')
-TF = Fabric(locations=coreTf, modules=coreModule)
+TF = Fabric(locations=coreTf, modules=[''])
 
 
-# In[6]:
+# In[8]:
 
 
 api = TF.load('''
@@ -378,7 +375,7 @@ api.makeAvailableIn(globals())
 
 # ## Patterns
 
-# In[7]:
+# In[9]:
 
 
 # punctuation
@@ -447,7 +444,7 @@ def set_pet_pattern_repl(match):
 
 # ## Actions
 
-# In[8]:
+# In[10]:
 
 
 def get_orig(w, punct=True, set_pet=False, tetra=True, give_ketiv=False):
@@ -534,7 +531,7 @@ def partition_w(wnodes):
 # 
 # This is especially important for, but not only for, the BGDKPT letters.
 
-# In[9]:
+# In[11]:
 
 
 specials = (
@@ -626,7 +623,7 @@ specials2 = (
 # 
 # The ``sound_dict`` is the resultig (ordered) mapping of all source characters to "phonetic" characters.
 
-# In[10]:
+# In[12]:
 
 
 dagesh_lenes = {'b.', 'g.', 'd.', 'k.', 'p.', 't.'}
@@ -741,7 +738,7 @@ for (sym, let, glyph) in specials2:
 # 
 # Python lacks *possessive* quantifiers in regular expressions, so again, this makes some expressions below more complicated than they were otherwise.
 
-# In[11]:
+# In[13]:
 
 
 # We want to test for vowels in look-behind conditions.
@@ -801,7 +798,7 @@ acc = '[ˈˌ]'                              # primary and secundary accent
 # 
 # If there is an accent on the guttural, we ignore it in these cases, because the guttural does not initiate a syllable.
 
-# In[12]:
+# In[14]:
 
 
 # rafe
@@ -823,7 +820,7 @@ def furtive_patah_repl(match):
 # 
 # ### Patterns
 
-# In[13]:
+# In[15]:
 
 
 # explicit accents
@@ -876,7 +873,7 @@ def verse_end_phono_repl(match):
 
 # ### Actions
 
-# In[14]:
+# In[16]:
 
 
 stats = collections.Counter()
@@ -940,7 +937,7 @@ def doaccents(orig, debug=False, count=False):
 # 
 # ### Patterns
 
-# In[15]:
+# In[17]:
 
 
 # qamets qatan  
@@ -1014,7 +1011,7 @@ def qamets_qatan_verb_x_repl(match):
 # Here is the function that carries out rule based qamets qatan detection, without going into
 # verb paradigms and exceptions. It is the first go at it.
 
-# In[16]:
+# In[18]:
 
 
 def doplainqamets(word, accentless=False, debug=False, count=False):
@@ -1074,7 +1071,7 @@ def doplainqamets(word, accentless=False, debug=False, count=False):
 # As to rule 4, there are cases where the schwa in question is also followed by a final consonant with schwa.
 # In those cases it seems that the schwa in question is silent.
 
-# In[17]:
+# In[19]:
 
 
 # mobile schwa
@@ -1126,7 +1123,7 @@ def dages_forte_repl(match):
 
 # ## Mater lectionis and final fixes
 
-# In[18]:
+# In[20]:
 
 
 # silent aleph
@@ -1177,7 +1174,7 @@ def fixit_w_repl(match):
 # 
 # The ``phono()`` function that carries out the complete transliteration, looks by default in ``qamets_corrections``, but this can be overridden. These corrections will not be carried out for the special verb cases.
 
-# In[19]:
+# In[21]:
 
 
 qamets_corrections = {} # list of translits that must be corrected
@@ -1208,7 +1205,7 @@ def apply_corr(wordq, corr):
 # 
 # We need concise, normalized values for the lexical features.
 
-# In[20]:
+# In[22]:
 
 
 undefs = {'NA', 'unknown', 'n/a', 'absent'}
@@ -1235,7 +1232,7 @@ png['n/a'] = '-'
 # 
 # We need a label for lexical information such as part of speech, person, number, gender.
 
-# In[21]:
+# In[23]:
 
 
 declensed = {'subs', 'nmpr', 'adjv', 'prps', 'prde', 'prin'}
@@ -1272,7 +1269,7 @@ def get_prs(lex_info):
 # 
 # ## Phono parts
 
-# In[22]:
+# In[24]:
 
 
 interesting_stats = [
@@ -1283,7 +1280,7 @@ interesting_stats = [
 ]
 
 
-# In[23]:
+# In[25]:
 
 
 # if suppress_in_verb, phono will suppress qatan interpretation in certain verb paradigmatic forms
@@ -1386,7 +1383,7 @@ def phono_qamets(
     return (result, False)
 
 
-# In[24]:
+# In[26]:
 
 
 def phono_patterns(result, debug, count, dout):
@@ -1453,7 +1450,7 @@ def phono_patterns(result, debug, count, dout):
     return result
 
 
-# In[25]:
+# In[27]:
 
 
 def phono_symbols(ws, result, debug, count, dout):
@@ -1507,7 +1504,7 @@ def phono_symbols(ws, result, debug, count, dout):
 # ## Phono whole
 # Here the rule fabrics are woven together, exceptions invoked.
 
-# In[26]:
+# In[28]:
 
 
 def phono(
@@ -1568,7 +1565,7 @@ def phono(
 # to the number of consonants found in the paradigmatic material.
 # This is rather crude, but it will do.
 
-# In[27]:
+# In[29]:
 
 
 # we need the number of letters in a defined value of a morpho feature
@@ -1595,7 +1592,7 @@ def len_morpho(w):
 # 
 # Next, we reduce the vowel skeleton to a skeleton pattern. We are not interested in all vowels, only in whether the vowel is a qamets (gadol or qatan), A-like, O-like, or other (which we dub E-like).
 
-# In[28]:
+# In[30]:
 
 
 # the qamets gadol/qatan skeleton
@@ -1653,7 +1650,7 @@ def get_full_skel(w, debug=False):
 # 
 # ### All candidates
 
-# In[29]:
+# In[31]:
 
 
 # find lexemes which have an occurrence with a qamets (except verbs)
@@ -1678,7 +1675,7 @@ utils.caption(0, '\t{} lexemes and {} unique occurrences'.format(len(qq_lex), le
 
 # ### Filtering interesting candidates
 
-# In[30]:
+# In[32]:
 
 
 utils.caption(0, '\tFiltering lexemes with varied occurrences')
@@ -1708,7 +1705,7 @@ utils.caption(0, '\t{} interesting lexemes with {} unique occurrences'.format(le
 
 # ### Guess the qamets
 
-# In[31]:
+# In[33]:
 
 
 qamets_qatan_xc = dict(
@@ -1773,7 +1770,7 @@ def get_corr(fullskel, guess, debug=False):
 
 # ### Carrying out the guess work
 
-# In[32]:
+# In[34]:
 
 
 utils.caption(0, '\tGuessing between gadol and qatan')
@@ -1813,7 +1810,7 @@ utils.caption(0, '\t{} patterns with conflicts'.format(nconflicts))
 
 # # Generate phonological data
 
-# In[34]:
+# In[35]:
 
 
 def stats_prog(): return ' '.join(str(stats.get(stat, 0)) for stat in interesting_stats)
@@ -1864,7 +1861,7 @@ for stat in sorted(stats):
 # 
 # They should be consistent.
 
-# In[37]:
+# In[36]:
 
 
 utils.caption(0, '{} items in phono'.format(len(phono_file)))
@@ -1894,7 +1891,7 @@ else:
 # We also generate a config feature `otext@phono`, which will be picked up by Text-Fabric automatically.
 # In it we define the phonetic *format*, so that Text-Fabric has can output text in phonetic representation.
 
-# In[38]:
+# In[37]:
 
 
 utils.caption(4, 'Writing TF phono features')
@@ -1916,7 +1913,7 @@ metaData = {
     'phono': dict(valueType='str'),
     'phono_trailer': dict(valueType='str'),
 }
-TF = Fabric(locations=thisSave, silent=True)
+TF = Fabric(locations=thisTempTf, silent=True)
 TF.save(nodeFeatures=nodeFeatures, edgeFeatures=edgeFeatures, metaData=metaData)
 
 
@@ -1924,35 +1921,35 @@ TF.save(nodeFeatures=nodeFeatures, edgeFeatures=edgeFeatures, metaData=metaData)
 # 
 # Check differences with previous versions.
 
-# In[39]:
+# In[38]:
 
 
-utils.checkDiffs(thisSave, thisDeliver, only=set(nodeFeatures))
+utils.checkDiffs(thisTempTf, thisTf, only=set(nodeFeatures))
 
 
 # # Stage: Deliver 
 # 
 # Copy the new TF features from the temporary location where they have been created to their final destination.
 
-# In[40]:
+# In[39]:
 
 
-utils.deliverDataset(thisSave, thisDeliver)
+utils.deliverDataset(thisTempTf, thisTf)
 
 
 # # Stage: compile TF
 
-# In[41]:
+# In[40]:
 
 
 utils.caption(4, 'Load and compile the new TF features')
 
-TF = Fabric(locations=[coreTf, thisTf], modules=[coreModule, module])
+TF = Fabric(locations=[coreTf, thisTf], modules=[''])
 api = TF.load(' '.format(' '.join(nodeFeatures)))
 api.makeAvailableIn(globals())
 
 
-# In[52]:
+# In[41]:
 
 
 utils.caption(4, 'Basic tests')
