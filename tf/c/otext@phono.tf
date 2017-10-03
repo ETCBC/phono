@@ -5,5 +5,5 @@
 @see=https://rawgit.com/ETCBC/text-fabric/master/phono/phonoTf.html
 @source=Phono Notebook applied to BHSA Data
 @writtenBy=Text-Fabric
-@dateWritten=2017-10-02T06:50:29Z
+@dateWritten=2017-10-03T05:50:18Z
 
