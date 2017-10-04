@@ -11,7 +11,7 @@ The results of this study are being delivered in several forms, summarized here.
   the Hebrew text can be displayed in phonetic transcription, and it is possible
   to query for these transcription with MQL queries on the website;
 * **Data module**: a set of 
-  [features](https://github.com/ETCBC/parallels/tree/master/tf/4b)
+  [features](https://github.com/ETCBC/parallels/tree/master/tf)
   in **text-fabric** format;
 * **Program code**: a
   [Jupyter notebook](https://github.com/ETCBC/parallels/tree/master/programs).
