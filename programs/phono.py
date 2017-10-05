@@ -1902,6 +1902,8 @@ nodeFeatures = dict(
 edgeFeatures = {}
 provenance = dict(
     source='Phono Notebook applied to BHSA Data',
+    coreData='BHSA',
+    coreVersion=VERSION,
     author='BHSA Data: Constantijn Sikkel; Phono Notebook: Dirk Roorda',
 )
 metaData = {
