@@ -5,7 +5,7 @@
 @source=Phono Notebook applied to BHSA Data
 @valueType=str
 @writtenBy=Text-Fabric
-@dateWritten=2017-10-06T06:42:47Z
+@dateWritten=2017-10-06T15:44:42Z
 
 bᵊ
 rēšˌîṯ
@@ -16569,6 +16569,7 @@ malʔˈaḵ
 hā
 ʔᵉlōhˈîm
 ba
+
 ḥᵃlˌôm
 yˈaʕᵃqˈōv
 wā
@@ -392491,7 +392492,9 @@ lᵊ
 ʔᵃvˌî
 qiryˈaṯ yᵊʕārˈîm
 hārōʔˌeh
-ḥᵃṣˌî hammᵊnuḥˈôṯ
+ḥᵃṣˌî
+ha
+mmᵊnuḥˈôṯ
 û
 mišpᵊḥôṯ
 qiryˈaṯ yᵊʕārˈîm
