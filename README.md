@@ -1,3 +1,4 @@
+[![DOI](https://zenodo.org/badge/104842823.svg)](https://zenodo.org/badge/latestdoi/104842823)
 ![etcbc](programs/images/etcbc.png)
 
 # Phonetic transcription
