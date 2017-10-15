@@ -18,6 +18,7 @@ The results of this study are being delivered in several forms, summarized here.
   [Jupyter notebook](https://github.com/ETCBC/parallels/tree/master/programs).
 
 ![tf](programs/tf-small.png)
+![dans](programs/images/dans.png)
 
 # Author
 * [Dirk Roorda](mailto:dirk.roorda@dans.knaw.nl) -
