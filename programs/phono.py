@@ -1910,7 +1910,7 @@ metaData = {
     '': provenance,
     'otext@phono': {
         'about': 'Provides phonetic transcriptions to Hebrew Words',
-        'see': 'https://rawgit.com/ETCBC/text-fabric/master/phono/phonoTf.html',
+        'see': 'https://github.com/ETCBC/phono',
         'fmt:text-phono-full': '{phono}{phono_trailer}'},
     'phono': dict(valueType='str'),
     'phono_trailer': dict(valueType='str'),
