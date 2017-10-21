@@ -1,5 +1,5 @@
 [![DOI](https://zenodo.org/badge/104842823.svg)](https://zenodo.org/badge/latestdoi/104842823)
-![etcbc](programs/images/etcbc.png)
+[![etcbc](programs/images/etcbc.png)](http://www.etcbc.nl)
 
 # Phonetic transcription
 Algorithm to determine parallel passages in the Hebrew Bible.
@@ -18,7 +18,7 @@ The results of this study are being delivered in several forms, summarized here.
   [Jupyter notebook](https://github.com/ETCBC/parallels/tree/master/programs).
 
 ![tf](programs/tf-small.png)
-![dans](programs/images/dans.png)
+[![dans](programs/images/dans.png)](https://www.dans.knaw.nl)
 
 # Author
 * [Dirk Roorda](mailto:dirk.roorda@dans.knaw.nl) -
