@@ -1,7 +1,10 @@
 
 # coding: utf-8
 
-# <img align="right" src="tf-small.png"/>
+# <img align="right" src="images/dans-small.png"/>
+# <img align="right" src="images/tf-small.png"/>
+# <img align="right" src="images/etcbc.png"/>
+# 
 # 
 # # Phonetic Transliteration of Hebrew Masoretic Text
 # 
@@ -14,7 +17,7 @@
 # * the Hebrew Bible may be subject of study in various fields,
 #   where the people involved do not master the Hebrew script;
 #   a phonetic transcription removes a hurdle for them.
-# * in computational linguistics there are many tools that deal with written language in latin alphabets;
+# * in computational linguistics there are many tools that deal with written language in Latin alphabets;
 #   even a simple task as getting the consonant-vowel pattern of a word is unnecessarily complicated
 #   when using the Hebrew script.
 # * in phonetics and language learning theory, it is important to represent the sounds without being burdened
@@ -48,7 +51,7 @@
 # where they have built in a pretty good transliteration, based on a different method of rule application. It is documented in an article by Nicolai Winther-Nielsen:
 # [Transliteration of Biblical Hebrew for the Role-Lexical Module](http://www.see-j.net/index.php/hiphil/article/view/62) 
 # and additional information can be found in Claus Tøndering's
-# [Bible Online Learner, Software on Github](https://github.com/EzerIT/BibleOL).
+# [Bible Online Learner, Software on GitHub](https://github.com/EzerIT/BibleOL).
 # See also [Lex: A software project for linguists](http://www.see-j.net/index.php/hiphil/article/view/60/56).
 # 
 # We are planning to conduct an automatic comparison of both transliteration schemes over the whole corpus.
@@ -63,7 +66,8 @@
 # 1. Showcases and tests: how the function solves particular classes of problems.
 #    The *cases* file shows a set of cases that have been generated in the last run.
 #    
-# The *tests* files show a prepared set of cases, against which to test new versions of the algorithm. These results have been obtained on version `4b` of the BHSA dataset.
+# The *tests* files show a prepared set of cases, against which to test new versions of the algorithm. These results have been obtained on version `4b` of the 
+# [BHSA dataset](https://etcbc.github.io/bhsa).
 #    1. [mixed](https://raw.githubusercontent.com/ETCBC/phono/programs/4b/mixed.html)
 #       with logfile
 #       [mixed_debug](https://raw.githubusercontent.com/ETCBC/phono/programs/4b/mixed_debug.txt).
@@ -87,15 +91,15 @@
 #       with logfile
 #       [qamets_prs_tests_debug](https://raw.githubusercontent.com/ETCBC/phono/programs/4b/qamets_prs_tests_debug.txt).
 #       The result of suppressing the qatan interpretation of the qamets in *pronominal suffixes*.
-# 1. A [plain text](https://raw.githubusercontent.com/ETCBC/phono/programs/combi.txt) with the complete text in ETCBC transliteration and phonetic transcription,
+# 1. A [plain text](https://raw.githubusercontent.com/ETCBC/phono/programs/combi.txt) with the complete text in BHSA transliteration and phonetic transcription,
 #    verse by verse.
 
 # # Overview of the method
 # 
 # ## Highlevel description
 # 
-# 1. **ETCBC transliteration**
-#    Our starting point is the ETCBC full transliteration of the Hebrew Masoretic text.
+# 1. **BHSA transliteration**
+#    Our starting point is the BHSA full transliteration of the Hebrew Masoretic text.
 #    This transliteration is in 1-1 correspondence with the Masoretic text, including all vowels and accents.
 # 1. **Grammar rules** 
 #    We have implemented the rules we find in grammars of Hebrew about long and short qamets, mobile and silent schwa,
@@ -115,7 +119,7 @@
 #    qatan, that is, by the grammar rules. 
 #    Yet, other occurrences of the same lexeme have other accent patterns, and
 #    lead to a gadol interpretation of the same qamets. 
-#    In this case we count the unique cases in favour of gadol versus qatan, and let the majority decide for all 
+#    In this case we count the unique cases in favor of gadol versus qatan, and let the majority decide for all 
 #    occurrences. In cases where we know that the majority votes wrong, we have intervened.
 #    
 # ### Qamets work hypothesis
@@ -138,16 +142,16 @@
 # ## Lexical information
 # 
 # This method is not a pure method, in the sense that it works only with the information given in the source string.
-# We *cheat*, i.e. we use morphological information from the ETCBC database to 
+# We *cheat*, i.e. we use morphological information from the BHSA database to 
 # steer us into the right directorion. To this end, the input of the `phono()` is always a
-# LAF node, from which we can get all information we need.
+# Text-Fabric node, from which we can get all information we need.
 # 
 # More precisely, it is a sequence of nodes.
 # This sequence is meant to correspond to a sequence of monads, that is written adjacently
 # (no space between, no maqef between).
 # From these nodes we can look up:
 # 
-# * the ETCBC transliteration
+# * the BHSA transliteration
 # * the qere (if there is a discrepancy between ketiv and qere)
 # * additional lexical information (taken from the last node)
 # 
@@ -162,11 +166,11 @@
 # 
 # ## Accents
 # 
-# We determine "primary" and "secundary" stress in our transliteration, but this must not be taken in a phonetic sense.
+# We determine "primary" and "secondary" stress in our transliteration, but this must not be taken in a phonetic sense.
 # Every syllable that carries an accent pointing will get a primary stress mark.
 # However, a few specific accent pointings are not deemed to produce an an accent, and an other group of accents
 # is deemed to produce only a secondary accent.
-# The last syllable of a word also gets a secundary accent by default.
+# The last syllable of a word also gets a secondary accent by default.
 # We have not yet tried to be more precise in this, so *segolates* do not get the treatment they deserve.
 # 
 # The main rationale for accents is that they prevent a qamets to be read as qatan.
@@ -236,7 +240,7 @@
 # 
 # ### Accent
 # 
-# The primary and secundary stress are marked as `ˈ ˌ` and are placed *in front of the vowel they occur with*.
+# The primary and secondary stress are marked as `ˈ ˌ` and are placed *in front of the vowel they occur with*.
 # 
 # ### Punctuation
 # 
@@ -272,7 +276,7 @@
 # 
 # Quite a bit of code is dedicated to count special cases, to test, and to produce neat tables with interesting forms.
 # It is also possible to call the `phono()` function in debug mode, which will write to a text file all stages in the
-# transliteration from etcbc orginal into the phonetic result.
+# transliteration from BHSA orginal into the phonetic result.
 
 # # Load the modules
 
@@ -305,7 +309,7 @@ def stop(good=False):
 
 
 # This notebook can run a lot of tests and create a lot of examples.
-# However, when run in the pipeline, we only want to create the two phono features.
+# However, when run in the pipeline, we only want to create the two `phono` features.
 # 
 # So, further on, there will be quite a bit of code under the condition `not SCRIPT`.
 
@@ -368,9 +372,9 @@ api.makeAvailableIn(globals())
 
 # # The source string
 
-# Here is what we use as our starting point: the etcbc transliteration, with one or two tweaks.
+# Here is what we use as our starting point: the BHSA transliteration, with one or two tweaks.
 # 
-# The ETCBC transcription encodes also what comes after each word until the next word.
+# The BHSA transliteration encodes also what comes after each word until the next word.
 # Sometimes we want that extra bit, and sometimes not, and sometimes part of it.
 
 # ## Patterns
@@ -521,8 +525,8 @@ def partition_w(wnodes):
 
 # # The phonological symbols
 # 
-# Here is the list of symbols that constitutes the mapping from ETCBC transcription codes to a phonetic transcription.
-# It is a series of triplets (*etcbc symbol*, *name*, *phonetic symbol*).
+# Here is the list of symbols that constitutes the mapping from BHSA transcription codes to a phonetic transcription.
+# It is a series of triplets (*bhsa symbol*, *name*, *phonetic symbol*).
 # 
 # If changes are needed to the appearance of the phonetic transcriptions (not to its *logic*), here is the place to tweak.
 # 
@@ -618,10 +622,10 @@ specials2 = (
 # 
 # Our treatment of accents is still primitive. 
 # 
-# We ignore some accents (``irrelevant accents`` below) and we consifer some accents as indicators of a mere
-# *secundary* accent (``secundary accents`` below).
+# We ignore some accents (``irrelevant accents`` below) and we consider some accents as indicators of a mere
+# *secondary* accent (``secundary accents`` below).
 # 
-# The ``sound_dict`` is the resultig (ordered) mapping of all source characters to "phonetic" characters.
+# The ``sound_dict`` is the resulting (ordered) mapping of all source characters to "phonetic" characters.
 
 # In[10]:
 
@@ -679,7 +683,7 @@ for (sym, let, glyph) in specials2:
 # consume corresponding stretches of the string.
 # However, in many cases a pattern specifies specific contexts in which a match should be found.
 # In those cases we do not want that the context parts of the pattern are responsible for string
-# consumption, because in those parts there could be another relevangt match.
+# consumption, because in those parts there could be another relevant match.
 # 
 # In regular expression there is a solution for that: look-ahead and look-behind assertions and we use them frequently.
 # 
@@ -783,13 +787,13 @@ acc = '[ˈˌ]'                              # primary and secundary accent
 # # Regular expressions
 # 
 # Here are the patterns, but also the replacement functions we are going to carry out when the patterns match.
-# How exactly the patterns and replacement functions hang together, is a matter for the phono function itself.
+# How exactly the patterns and replacement functions hang together, is a matter for the `phono` function itself.
 
 # ## Rafe and furtive patah
 # 
 # ### Rafe
 # 
-# The rafe indicates a fricative pronounciation. It cancels a dagesh lene on a BGDKPT letter.
+# The rafe indicates a fricative pronunciation. It cancels a dagesh lene on a BGDKPT letter.
 # If it occurs in other situations, we ignore it.
 # 
 # ### Furtive patah
@@ -1553,7 +1557,7 @@ def phono(
 
 # # Skeleton analysis
 # 
-# We have to do more work for the qamets. Sometimes a word form on its own is not enough to determine whether a qamets is gadol or qatan. In those cases, we analyse all occurrences of the same lexeme, and for each syllable position we measure whether an A-like vowel of an O-like vowel tends to occur in that syllable.
+# We have to do more work for the qamets. Sometimes a word form on its own is not enough to determine whether a qamets is gadol or qatan. In those cases, we analyze all occurrences of the same lexeme, and for each syllable position we measure whether an A-like vowel of an O-like vowel tends to occur in that syllable.
 # 
 # In order to do that, we need to compute a *vowel skeleton* for each word.
 
@@ -1856,8 +1860,8 @@ for stat in sorted(stats):
 
 # ## Consistency check
 # 
-# We take the just generated phono and wordph files.
-# From the phono file we strip the passage indicators, and from the wordph we strip the node numbers.
+# We take the just generated `phono` and `wordph` files.
+# From the `phono` file we strip the passage indicators, and from the `wordph` we strip the node numbers.
 # 
 # They should be consistent.
 
@@ -1988,17 +1992,17 @@ if SCRIPT:
 # 
 #     passage etcbc-original phono_transcription expected_result bol_reference comments
 #     
-# The testing routine executes all tests, checks the results, produces onscreen output, debug output in file, and pretty output in a html file.
+# The testing routine executes all tests, checks the results, produces on-screen output, debug output in file, and pretty output in a HTML file.
 
 # ## Auxiliary functions
 # 
 # ### Composing tests
 # 
-# Given an occurrence in etcbc translit in a passage, or a node number, we want to easily compile a test out of it.
+# Given an occurrence in ETCBC transliteration in a passage, or a node number, we want to easily compile a test out of it.
 # Say we are looking for ``orig``.
 # 
 # The match need not be perfect. 
-# We want to find the node w, which carries a translit that occurs at the end of ``orig``.
+# We want to find the node w, which carries a transliteration that occurs at the end of ``orig``.
 # If there are multiple, we want the longest.
 # If there are multiple longest ones, we want the first that occurs in the passage.
 
@@ -2599,10 +2603,4 @@ showcases(
     pcases,
     order=True,
 )
-
-
-# In[ ]:
-
-
-
 

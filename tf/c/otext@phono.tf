@@ -4,8 +4,8 @@
 @coreData=BHSA
 @coreVersion=c
 @fmt:text-phono-full={phono}{phono_trailer}
-@see=https://rawgit.com/ETCBC/text-fabric/master/phono/phonoTf.html
+@see=https://github.com/ETCBC/phono
 @source=Phono Notebook applied to BHSA Data
 @writtenBy=Text-Fabric
-@dateWritten=2017-10-10T11:23:32Z
+@dateWritten=2018-01-15T09:54:29Z
 
