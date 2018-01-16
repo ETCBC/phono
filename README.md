@@ -15,7 +15,7 @@ The results of this study are being delivered in several forms, summarized here.
   [features](https://github.com/ETCBC/parallels/tree/master/tf)
   in **text-fabric** format;
 * **Program code**: a
-  [Jupyter notebook](https://github.com/ETCBC/parallels/tree/master/programs).
+  [Jupyter notebook](https://github.com/ETCBC/phono/tree/master/programs).
 
 ![tf](programs/tf-small.png)
 [![dans](programs/images/dans.png)](https://www.dans.knaw.nl)
