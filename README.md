@@ -2,7 +2,7 @@
 [![etcbc](programs/images/etcbc.png)](http://www.etcbc.nl)
 
 # Phonetic transcription
-Algorithm to determine parallel passages in the Hebrew Bible.
+Algorithm to provide phonetic transcriptions of all words in the Hebrew Bible.
 
 # Results
 
@@ -12,7 +12,7 @@ The results of this study are being delivered in several forms, summarized here.
   the Hebrew text can be displayed in phonetic transcription, and it is possible
   to query for these transcription with MQL queries on the website;
 * **Data module**: a set of 
-  [features](https://github.com/ETCBC/parallels/tree/master/tf)
+  [features](https://github.com/ETCBC/phono/tree/master/tf)
   in **text-fabric** format;
 * **Program code**: a
   [Jupyter notebook](https://github.com/ETCBC/phono/tree/master/programs).

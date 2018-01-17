@@ -7,5 +7,5 @@
 @see=https://github.com/ETCBC/phono
 @source=Phono Notebook applied to BHSA Data
 @writtenBy=Text-Fabric
-@dateWritten=2018-01-15T10:38:47Z
+@dateWritten=2018-01-17T08:12:30Z
 

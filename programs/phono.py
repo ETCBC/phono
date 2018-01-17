@@ -143,11 +143,11 @@
 # 
 # This method is not a pure method, in the sense that it works only with the information given in the source string.
 # We *cheat*, i.e. we use morphological information from the BHSA database to 
-# steer us into the right directorion. To this end, the input of the `phono()` is always a
+# steer us into the right direction. To this end, the input of the `phono()` is always a
 # Text-Fabric node, from which we can get all information we need.
 # 
-# More precisely, it is a sequence of nodes.
-# This sequence is meant to correspond to a sequence of monads, that is written adjacently
+# More precisely, the input is a sequence of nodes.
+# This sequence is meant to correspond to a sequence of slots belonging to words that are written adjacently
 # (no space between, no maqef between).
 # From these nodes we can look up:
 # 
@@ -180,7 +180,7 @@
 # We have made a careful selection of UNICODE symbols to represent Hebrew sounds.
 # Sometimes we follow the phonetic usage of the symbols, sometimes we follow wide spread custom.
 # The actual mapping can be plugged in quite easily, 
-# and the intermediate stages in the transformation do not use these final symbols,
+# and the intermediate stages in the transformation do not use these symbols,
 # so the algorithm can be easily adapted to other choices.
 # 
 # ### Consonants
@@ -198,7 +198,7 @@
 # So, we use `b g d k p t` for the plosives, but for the fricatives we use `v ḡ ḏ ḵ f ṯ`.
 # 
 # With regards to the *emphatic* consonants ט and ח and צ we
-# represent them with a under dot: `ṭ ḥ ṣ`.
+# represent them with a dot below: `ṭ ḥ ṣ`.
 # ק is just `q`.
 # 
 # א and ע translate to translate to `ʕ` and `ʔ`.
@@ -228,7 +228,7 @@
 # 
 # However, the *furtive* patah is a `ₐ` in front of its consonant.
 # 
-# The long vowels without yod or waw (qamets gadol, tsere, holam) have an over bar `ā ē ō`.
+# The long vowels without yod or waw (qamets gadol, tsere, holam) have a bar above `ā ē ō`.
 # 
 # The complex vowels (tsere or hireq plus yod, holam plus waw, waw with dagesh) have a circumflex `ê î ô û`.
 # 
