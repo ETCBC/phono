@@ -5,7 +5,7 @@
 @source=Phono Notebook applied to BHSA Data
 @valueType=str
 @writtenBy=Text-Fabric
-@dateWritten=2018-01-17T07:56:23Z
+@dateWritten=2018-01-17T17:14:11Z
 
 bᵊ
 rēšˌîṯ

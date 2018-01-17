@@ -365,7 +365,7 @@ api = TF.load('''
         g_word g_cons lex_utf8 lex lex0
         sp vs vt gn nu ps st
         uvf prs g_prs pfm vbs vbe
-        language
+        languageISO
 ''')
 api.makeAvailableIn(globals())
 
@@ -1663,7 +1663,7 @@ qq_words = set()
 qq_lex = collections.defaultdict(lambda: [])
 
 for w in F.otype.s('word'):
-    ln = F.language.v(w)
+    ln = F.languageISO.v(w)
     if ln != 'hbo': continue
     sp = F.sp.v(w)
     if sp == 'verb': continue
@@ -2483,7 +2483,7 @@ qq_verb_specials = []
 
 info('Finding qamets qatan special verb cases')
 for w in F.otype.s('word'):
-    ln = F.language.v(w)
+    ln = F.languageISO.v(w)
     if ln != 'hbo': continue
     sp = F.sp.v(w)
     if sp != 'verb': continue
@@ -2554,7 +2554,7 @@ qq_prs_specials = []
 
 info('Finding qamets qatan in pronominal suffixes')
 for w in F.otype.s('word'):
-    ln = F.language.v(w)
+    ln = F.languageISO.v(w)
     if ln != 'hbo': continue
     lex_info = get_lex_info(w)
     prs = get_prs(lex_info)
