@@ -5,13 +5,13 @@
   5 Genesis 1:1              6 art               HA-                    hˌa                  =                     
   6 Genesis 1:7            108 subs sm,          MI-T.A74XAT            mittˈaḥaṯ            =                     
   7 Genesis 1:7            107 prep              MI-                    mˌi                  =                     
-  8 Genesis 48:9         27477 conj              WA-                    wˌa                  =                     
-  9 Samuel_I 23:3       155387 prep              >EL&                   ʔel-                 =                     
- 10 Genesis 4:1           1684 prep              >ET&                   ʔeṯ-                 =                     
+  8 Samuel_I 23:3       155387 nmpr s-,          Q:<IL@80H              qᵊʕilˈā              =                     
+  9 Genesis 4:1           1684 prep              >ET&                   ʔeṯ-                 =                     
+ 10 Genesis 48:9         27477 prep              >;LA73J                ʔēlˌay               =                     
  11 Genesis 1:1              5 prep              >;71T                  ʔˌēṯ                 =                     
  12 Genesis 1:7            106 conj              >:ACER03               ʔᵃšˌer               =                     
- 13 Proverbia 10:10     349419 subs sf,          <AY.@92BET             ʕaṣṣˈāveṯ            =                     
- 14 Joel 1:17           294303 verb qal perf 3p-, <@B:C74W.              ʕāvᵊšˈû              =                     
+ 13 Proverbia 10:10     349420 subs sf,          <AY.@92BET             ʕaṣṣˈāveṯ            =                     
+ 14 Joel 1:17           294304 verb qal perf 3p-, <@B:C74W.              ʕāvᵊšˈû              =                     
 
   1 Genesis 9:21          4420 subs sm,+h        >@H:@LO75W00              => *ʔohᵒlˈô                  < =                           # ketiv qere
         orig                 >@H:@LO75W
@@ -270,77 +270,42 @@
         cleanup              mˌi
 
 
-  8 Genesis 48:9         27477 conj              WA-                       => wˌa                       < =                           # pronominal suffix after verb
-        orig                 WA
-        trim                 wa
-        accents              wa
-        punctuation          wa
-        rafe                 wa
-        furtive_patah        wa
-        default accent       w/a
-        qamets qatan         no special verb form: conj
-        qamets_qatan1        w/a
-        qamets_qatan2        w/a
-        qamets_qatan3        w/a
-        qamets_qatan4a       w/a
-        qamets_qatan4b       w/a
+  8 Samuel_I 23:3       155387 nmpr s-,          Q:<IL@80H                 => qᵊʕilˈā                   < =                           # peculiar representation of tetragrammaton
+        orig                 Q:<IL@80H
+        trim                 q:<il@80h
+        accents              q:<il!@h
+        punctuation          q:<il!@h
+        rafe                 q:<il!@h
+        furtive_patah        q:<il!@h
+        default accent       q:<il!@h
+        qamets qatan         no special verb form: nmpr s-
+        qamets_qatan1        q:<il!@h
+        qamets_qatan2        q:<il!@h
+        qamets_qatan3        q:<il!@h
+        qamets_qatan4a       q:<il!@h
+        qamets_qatan4b       q:<il!@h
         qamets qatan         no pron suffix indicated
-        qamets_qatan5        w/a
-        qamets_qatan_corr    w/a
-        mobile_schwa1        w/a
-        mobile_schwa2        w/a
-        mobile_schwa3        w/a
-        mobile_schwa4        w/a
-        dagesh_forte_lene    w/a
-        dagesh_forte         w/a
-        dagesh_lene          w/a
-        silent_aleph         w/a
-        last_ml              w/a
-        mappiq_heh           w/a
-        symbols              wˌa
-        fixit_i              wˌa
-        fixit_w              wˌa
-        fixit                wˌa
-        punct                wˌa
-        cleanup              wˌa
+        qamets_qatan5        q:<il!@h
+        qamets_qatan_corr    q:<il!@h
+        mobile_schwa1        q%<il!@h
+        mobile_schwa2        q%<il!@h
+        mobile_schwa3        q%<il!@h
+        mobile_schwa4        q%<il!@h
+        dagesh_forte_lene    q%<il!@h
+        dagesh_forte         q%<il!@h
+        dagesh_lene          q%<il!@h
+        silent_aleph         q%<il!@h
+        last_ml              q%<il!@
+        mappiq_heh           q%<il!@
+        symbols              qᵊʕilˈā
+        fixit_i              qᵊʕilˈā
+        fixit_w              qᵊʕilˈā
+        fixit                qᵊʕilˈā
+        punct                qᵊʕilˈā
+        cleanup              qᵊʕilˈā
 
 
-  9 Samuel_I 23:3       155387 prep              >EL&                      => ʔel-                      < =                           # peculiar representation of tetragrammaton
-        orig                 >EL&
-        trim                 >el&
-        accents              >el&
-        punctuation          >el&
-        rafe                 >el&
-        furtive_patah        >el&
-        default accent       >el&
-        qamets qatan         no special verb form: prep
-        qamets_qatan1        >el&
-        qamets_qatan2        >el&
-        qamets_qatan3        >el&
-        qamets_qatan4a       >el&
-        qamets_qatan4b       >el&
-        qamets qatan         no pron suffix indicated
-        qamets_qatan5        >el&
-        qamets_qatan_corr    >el&
-        mobile_schwa1        >el&
-        mobile_schwa2        >el&
-        mobile_schwa3        >el&
-        mobile_schwa4        >el&
-        dagesh_forte_lene    >el&
-        dagesh_forte         >el&
-        dagesh_lene          >el&
-        silent_aleph         >el&
-        last_ml              >el&
-        mappiq_heh           >el&
-        symbols              ʔel-
-        fixit_i              ʔel-
-        fixit_w              ʔel-
-        fixit                ʔel-
-        punct                ʔel-
-        cleanup              ʔel-
-
-
- 10 Genesis 4:1           1684 prep              >ET&                      => ʔeṯ-                      < =                           # Tetra with end of verse
+  9 Genesis 4:1           1684 prep              >ET&                      => ʔeṯ-                      < =                           # Tetra with end of verse
         orig                 >ET&
         trim                 >et&
         accents              >et&
@@ -373,6 +338,41 @@
         fixit                ʔeṯ-
         punct                ʔeṯ-
         cleanup              ʔeṯ-
+
+
+ 10 Genesis 48:9         27477 prep              >;LA73J                   => ʔēlˌay                    < =                           # pronominal suffix after verb
+        orig                 >;LA73J
+        trim                 >;la73j
+        accents              >;l/aj
+        punctuation          >;l/aj
+        rafe                 >;l/aj
+        furtive_patah        >;l/aj
+        default accent       >;l/aj
+        qamets qatan         no special verb form: prep
+        qamets_qatan1        >;l/aj
+        qamets_qatan2        >;l/aj
+        qamets_qatan3        >;l/aj
+        qamets_qatan4a       >;l/aj
+        qamets_qatan4b       >;l/aj
+        qamets qatan         no pron suffix indicated
+        qamets_qatan5        >;l/aj
+        qamets_qatan_corr    >;l/aj
+        mobile_schwa1        >;l/aj
+        mobile_schwa2        >;l/aj
+        mobile_schwa3        >;l/aj
+        mobile_schwa4        >;l/aj
+        dagesh_forte_lene    >;l/aj
+        dagesh_forte         >;l/aj
+        dagesh_lene          >;l/aj
+        silent_aleph         >;l/aj
+        last_ml              >;l/aj
+        mappiq_heh           >;l/aj
+        symbols              ʔēlˌay
+        fixit_i              ʔēlˌay
+        fixit_w              ʔēlˌay
+        fixit                ʔēlˌay
+        punct                ʔēlˌay
+        cleanup              ʔēlˌay
 
 
  11 Genesis 1:1              5 prep              >;71T                     => ʔˌēṯ                      < =                           # article in isolation
@@ -445,7 +445,7 @@
         cleanup              ʔᵃšˌer
 
 
- 13 Proverbia 10:10     349419 subs sf,          <AY.@92BET                => ʕaṣṣˈāveṯ                 < =                           # the qamets should be gadol
+ 13 Proverbia 10:10     349420 subs sf,          <AY.@92BET                => ʕaṣṣˈāveṯ                 < =                           # the qamets should be gadol
         orig                 <AY.@92BET
         trim                 <ay.@92bet
         accents              <ay.!@bet
@@ -480,7 +480,7 @@
         cleanup              ʕaṣṣˈāveṯ
 
 
- 14 Joel 1:17           294303 verb qal perf 3p-, <@B:C74W.                 => ʕāvᵊšˈû                   < =                           # qamets gadol or qatan
+ 14 Joel 1:17           294304 verb qal perf 3p-, <@B:C74W.                 => ʕāvᵊšˈû                   < =                           # qamets gadol or qatan
         orig                 <@B:C74W.
         trim                 <@b:c74w.
         accents              <@b:c!w.

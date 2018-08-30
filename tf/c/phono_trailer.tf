@@ -1,11 +1,11 @@
 @node
 @author=BHSA Data: Constantijn Sikkel; Phono Notebook: Dirk Roorda
 @coreData=BHSA
-@coreVersion=_temp
+@coreVersion=c
 @source=Phono Notebook applied to BHSA Data
 @valueType=str
 @writtenBy=Text-Fabric
-@dateWritten=2018-08-08T14:35:26Z
+@dateWritten=2018-08-30T14:17:06Z
 
 
  

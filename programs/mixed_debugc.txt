@@ -1,51 +1,51 @@
-  1 Deuteronomium 22:27 105847 subs sf,          HA45-N.A<:AR@H03       *hˈa*nnaʕᵃrˌā        ~ *hˈa*nnaʕᵃrā        
+  1 Deuteronomium 22:27 105848 subs sf,          HA45-N.A<:AR@H03       *hˈa*nnaʕᵃrˌā        ~ *hˈa*nnaʕᵃrā        
   2 Genesis 9:21          4420 subs sm,+h        >@H:@LO75W00           *ʔohᵒlˈô             ~ *ʔohᵒlˈôˈ           
-  3 Samuel_I 23:4       155397 nmpr sm,          JHW@80H_S              [yhwˈāh]             =                     
+  3 Samuel_I 23:4       155398 nmpr sm,          JHW@80H_S              [yhwˈāh]             =                     
   4 Genesis 3:1           1181 nmpr sm,subs pm,  J:HW@74H >:ELOHI92JM   [yᵊhwˈāh] ʔᵉlōhˈîm   =                     
   5 Genesis 1:22           430 subs pm,          B.A--J.AM.I80JM        bayyammˈîm           =                     
-  6 Samuel_I 1:11       141747 subs sm,          B.@-<:@NI74J           boʕᵒnˈî              =                     
+  6 Samuel_I 1:11       141748 subs sm,          B.@-<:@NI74J           boʕᵒnˈî              =                     
   7 Genesis 1:1              3 verb qal perf 3sm, B.@R@74>               bārˈā                =                     
   8 Genesis 30:19        15897 subs sm,adjv sm,  B.;N&CIC.I73J          bēn-šiššˌî           ~ bēn-šiššˈî          
   9 Genesis 1:1              2 subs sf,          B.:-R;>CI73JT          bᵊrēšˌîṯ             ~ bᵊrēšˈîṯ            
  10 Genesis 1:6             85 subs sm,          B.:-TO74WK:            bᵊṯˈôḵ               =                     
- 11 Genesis 31:32        16972 verb qal perf 3sf,+am G.:N@B@75TAM00         gᵊnāvˈāṯam           =                     
- 12 Sacharia 14:2       308940 subs pm,          HA-B.@74T.I80JM        habbˈāttˈîm          =                     
- 13 Samuel_II 11:1      165711 subs pm,          HA-M.AL:>,KI81JM       hammalḵˈîm           =                     
+ 11 Genesis 31:32        16973 verb qal perf 3sf,+am G.:N@B@75TAM00         gᵊnāvˈāṯam           =                     
+ 12 Sacharia 14:2       308941 subs pm,          HA-B.@74T.I80JM        habbˈāttˈîm          =                     
+ 13 Samuel_II 11:1      165712 subs pm,          HA-M.AL:>,KI81JM       hammalḵˈîm           =                     
  14 Genesis 1:16           288 subs pm,          HA-M.:>ORO73T          hammᵊʔōrˌōṯ          ~ hammᵊʔōrˈōṯ         
  15 Genesis 1:1              7 subs pm,          HA-C.@MA73JIM          haššāmˌayim          ~ haššāmˈayim         
  16 Genesis 1:18           346 subs sm,          HA-XO92CEK:            haḥˈōšeḵ             =                     
- 17 Genesis 49:2         27795 verb nif impv 2pm, HIQ.@B:Y71W.           hiqqāvᵊṣˌû           ~ hiqqāvᵊṣˈû          
- 18 Jeremia 6:8         237777 verb nif impv 2sf, HIW.@S:RIJ03           hiwwāsᵊrˌî           ~ hiwwāsᵊrî           
+ 17 Genesis 49:2         27796 verb nif impv 2pm, HIQ.@B:Y71W.           hiqqāvᵊṣˌû           ~ hiqqāvᵊṣˈû          
+ 18 Jeremia 6:8         237778 verb nif impv 2sf, HIW.@S:RIJ03           hiwwāsᵊrˌî           ~ hiwwāsᵊrî           
  19 Genesis 1:2             15 verb qal perf 3sf, H@J:T@71H              hāyᵊṯˌā              =                     
- 20 Josua 7:21          116634 subs sm,+ij       H@->@95H:@LI73J        hāʔˈohᵒlˌî           ~ hāʔˈohᵒlˈî          
+ 20 Josua 7:21          116635 subs sm,+ij       H@->@95H:@LI73J        hāʔˈohᵒlˌî           ~ hāʔˈohᵒlˈî          
  21 Genesis 1:1             11 subs s-,          H@->@75REY00           hāʔˈāreṣ             =                     
  22 Genesis 1:27           539 subs sm,          H@95->@D@M03           hˈāʔāḏˌām            ~ hˈāʔāḏām            
  23 Genesis 1:25           487 subs sf,          H@45->:AD@M@73H        hˈāʔᵃḏāmˌā           ~ hˈāʔᵃḏāmˈā          
  24 Genesis 2:14           943 prps sm,          H71W.>                 hˌû                  =                     
- 25 Josua 7:14          116457 subs pm,          LA--B.@T.I80JM         labbāttˈîm           =                     
+ 25 Josua 7:14          116458 subs pm,          LA--B.@T.I80JM         labbāttˈîm           =                     
  26 Genesis 30:19        15899 nmpr sm,          L.:-JA<:AQO75B00       llᵊyaʕᵃqˈōv          =                     
- 27 Jesaia 1:5          212144 subs sm,          L@-X:@LI80J            loḥᵒlˈî              =                     
+ 27 Jesaia 1:5          212145 subs sm,          L@-X:@LI80J            loḥᵒlˈî              =                     
  28 Genesis 25:32        12933 inrg              L@M.@H&                lāmmā-               =                     
- 29 Deuteronomium 28:28 108639 subs sm,          L;B@75B00              lēvˈāv               =                     
+ 29 Deuteronomium 28:28 108640 subs sm,          L;B@75B00              lēvˈāv               =                     
  30 Genesis 2:23          1138 verb pual perf 3sf,prde sf, LU45Q:@X@H&Z.O75>T00   lˈuqᵒḥā-zzˈōṯ        =                     
- 31 Psalmi 119:99       332075 prep              L,I75J00               lˈî                  =                     
- 32 Josua 7:10          116333 inrg              L@74M.@H               lˈāmmā               =                     
- 33 Exodus 12:39         35554 verb hit infc ---, L:-HIT:MAH:M;80H.A     lᵊhiṯmahmˈēₐh        =                     
+ 31 Psalmi 119:99       332076 prep              L,I75J00               lˈî                  =                     
+ 32 Josua 7:10          116334 inrg              L@74M.@H               lˈāmmā               =                     
+ 33 Exodus 12:39         35555 verb hit infc ---, L:-HIT:MAH:M;80H.A     lᵊhiṯmahmˈēₐh        =                     
  34 Genesis 1:29           621 subs sf,          L:->@K:L@75H00         lᵊʔoḵlˈā             =                     
  35 Genesis 2:19          1038 prin --,verb qal impf 3sm,prep MAH&J.IQ:R@>&LO92W     mah-yyiqrā-lˈô       =                     
  36 Genesis 12:18         5823 prin --,prde sf,  MAH&Z.O73>T            mah-zzˌōṯ            ~ mah-zzˈōṯ           
  37 Genesis 12:11         5700 nmpr s-,          MIY:R@92J:M@H          miṣrˈāyᵊmā           =                     
  38 Genesis 2:21          1092 subs pf,+w        MI-Y.AL:<OT@80JW       miṣṣalʕōṯˈāʸw        =                     
- 39 Genesis 35:18        19389 verb qal perf 3sf, M;80T@H                mˈēṯā                =                     
- 40 Jesaia 43:26        227319 verb nif impf 1p-, NIC.@P:V@73H           niššāfᵊṭˌā           ~ niššāfᵊṭˈā          
+ 39 Genesis 35:18        19390 verb qal perf 3sf, M;80T@H                mˈēṯā                =                     
+ 40 Jesaia 43:26        227320 verb nif impf 1p-, NIC.@P:V@73H           niššāfᵊṭˌā           ~ niššāfᵊṭˈā          
  41 Genesis 4:6           1764 verb qal perf 3p-, N@P:L71W.              nāfᵊlˌû              ~ nāfᵊlˈû             
- 42 Psalmi 11:3         312008 verb qal perf 3sm, P.@<@75L00             pāʕˈāl               =                     
- 43 Habakuk 3:2         302811 subs sm,+:k@      P.@45<@L:K@03          pˈoʕolᵊḵā            =                     
- 44 Proverbia 22:21     352903 subs sm,          QO73C:V:               qˌōšṭ                =                     
+ 42 Psalmi 11:3         312009 verb qal perf 3sm, P.@<@75L00             pāʕˈāl               =                     
+ 43 Habakuk 3:2         302812 subs sm,+:k@      P.@45<@L:K@03          pˈoʕolᵊḵā            =                     
+ 44 Proverbia 22:21     352904 subs sm,          QO73C:V:               qˌōšṭ                =                     
  45 Genesis 1:6             83 subs sm,          R@QI73J<A              rāqˌîₐʕ              ~ rāqˈîₐʕ             
- 46 Ezechiel 31:4       279831 verb piel perf 3sf,+hw. RO45M:M@92T:HW.        rˈōmᵊmˈāṯᵊhû         =                     
- 47 Jesaia 22:10        219122 verb qal wayq 2pm, WA-T.IT,:YW.03         wattiṯṣˌû            =                     
- 48 Samuel_II 4:4       162682 verb qal wayq 3sf, WA-T.@NO80S            wattānˈōs            =                     
+ 46 Ezechiel 31:4       279832 verb piel perf 3sf,+hw. RO45M:M@92T:HW.        rˈōmᵊmˈāṯᵊhû         =                     
+ 47 Jesaia 22:10        219123 verb qal wayq 2pm, WA-T.IT,:YW.03         wattiṯṣˌû            =                     
+ 48 Samuel_II 4:4       162683 verb qal wayq 3sf, WA-T.@NO80S            wattānˈōs            =                     
  49 Genesis 21:19         9971 verb hif wayq 3sf, WA-T.A73C:Q:           wattˌašq             =                     
  50 Genesis 11:3          4992 verb qal wayq 3pm, WA-J.O>M:R62W.         wayyōmᵊrˈû           =                     
  51 Genesis 1:7             96 verb qal wayq 3sm, WA-J.A74<AF            wayyˈaʕaś            =                     
@@ -54,38 +54,38 @@
  54 Genesis 11:2          4983 verb qal wayq 3pm, WA95-J.IM:Y:>71W.      wˈayyimṣᵊʔˌû         =                     
  55 Genesis 1:3             39 verb qal wayq 3sm,subs s-, WA45-J:HIJ&>O75WR00    wˈayᵊhî-ʔˈôr         =                     
  56 Genesis 11:3          5000 verb qal impf 1p-, W:-NIF:R:P@73H         wᵊniśrᵊfˌā           ~ wᵊniśrᵊfˈā          
- 57 Jeremia 20:17       244909 subs sm,+@h,      W:-RAX:M@73H,          wᵊraḥmˌā             =                     
+ 57 Jeremia 20:17       244910 subs sm,+@h,      W:-RAX:M@73H,          wᵊraḥmˌā             =                     
  58 Genesis 1:2             26 subs s-,subs pm,  W:-R74W.XA >:ELOHI80JM  wᵊrˈûₐḥ ʔᵉlōhˈîm     =                     
  59 Genesis 1:28           569 verb qal impv 2pm,+h@ W:-KIB:CU92H@          wᵊḵivšˈuhā           =                     
  60 Genesis 18:29         8332 verb nif impf 3pm, JIM.@Y:>71W.N          yimmāṣᵊʔˌûn          ~ yimmāṣᵊʔˈûn         
  61 Genesis 11:6          5082 verb qal impf 3pm, J@Z:M73W.              yāzᵊmˌû              ~ yāzᵊmˈû             
  62 Genesis 1:10           169 subs sm,          W.-L:-MIQ:W;71H        ûlᵊmiqwˌē            =                     
  63 Genesis 4:18          1979 nmpr sm,          W.-M:XIJ.J@>;81L       ûmᵊḥiyyyāʔˈēl        =                     
- 64 Samuel_II 15:10     169091 verb qal infc ---,+:akem C@M:<:AKEM03           šomʕᵃḵˌem            =                     
+ 64 Samuel_II 15:10     169092 verb qal infc ---,+:akem C@M:<:AKEM03           šomʕᵃḵˌem            =                     
  65 Genesis 1:22           427 prepsubs pm,      >ET&HA-M.A33JIM03      ʔeṯ-hammˈayim        ~ ʔeṯ-hammˌayim       
  66 Genesis 1:7            100 prepsubs sm,      >ET&H@-R@QIJ<A01       ʔeṯ-hārāqîˌₐʕ        =                     
- 67 Jeremia 10:20       240226 subs sm,+ij       >@H:@LI80J             ʔohᵒlˈî              =                     
- 68 Iob 19:4            340657 advb              >@M:N@71M              ʔomnˌām              =                     
- 69 Deuteronomium 25:18 107114 subs pm,+k@       >A45XARE80JK@          ʔˈaḥarˈeʸḵā          =                     
+ 67 Jeremia 10:20       240227 subs sm,+ij       >@H:@LI80J             ʔohᵒlˈî              =                     
+ 68 Iob 19:4            340658 advb              >@M:N@71M              ʔomnˌām              =                     
+ 69 Deuteronomium 25:18 107115 subs pm,+k@       >A45XARE80JK@          ʔˈaḥarˈeʸḵā          =                     
  70 Genesis 2:18          1008 verb qal impf 1s-,prep >E45<:EFEH.&L.O71W     ʔˈeʕᵉśeh-llˌô        =                     
  71 Genesis 1:1              4 subs pm,          >:ELOHI92JM            ʔᵉlōhˈîm             =                     
  72 Genesis 1:2             29 prepsubs pm,      <AL&P.:N;71J           ʕal-pᵊnˌê            =                     
- 73 Proverbia 10:10     349419 subs sf,          <AY.@92BET             ʕaṣṣˈāveṯ            =                     
- 74 Jesaia 1:1          212081 nmpr sm,          <UZ.IJ.@94HW.          ʕuzziyyˈāhû          =                     
- 75 Joel 1:17           294303 verb qal perf 3p-, <@B:C74W.              ʕāvᵊšˈû              =                     
+ 73 Proverbia 10:10     349420 subs sf,          <AY.@92BET             ʕaṣṣˈāveṯ            =                     
+ 74 Jesaia 1:1          212082 nmpr sm,          <UZ.IJ.@94HW.          ʕuzziyyˈāhû          =                     
+ 75 Joel 1:17           294304 verb qal perf 3p-, <@B:C74W.              ʕāvᵊšˈû              =                     
  76 Genesis 3:14          1434 verb qal perf 2sm,prde sf, <@FI74JT@ Z.O>T01      ʕāśˈîṯā zzōṯ         =                     
  77 Genesis 1:11           191 verb qal ptca -sm, <O70FEH                ʕˈōśeh               =                     
- 78 Numeri 8:22          75664 subs sf,+@m       <:ABO45D@T@M03         ʕᵃvˈōḏāṯām           =                     
+ 78 Numeri 8:22          75665 subs sf,+@m       <:ABO45D@T@M03         ʕᵃvˈōḏāṯām           =                     
  79 Genesis 1:30           625 subs sm,subs sf,  W.95-L:-K@L&XAJ.A74T   ˈûlᵊḵol-ḥayyˈaṯ      =                     
  80 Genesis 3:14          1455 subs pm,+k@       XAJ.E75JK@00           ḥayyˈeʸḵā            =                     
- 81 Exodus 28:3          43768 subs sf,          X@K:M@92H              ḥoḵmˈā               =                     
+ 81 Exodus 28:3          43769 subs sf,          X@K:M@92H              ḥoḵmˈā               =                     
  82 Genesis 18:15         8074 verb qal perf 2sf, Y@X@75Q:T.:00          ṣāḥˈāqt              =                     
- 83 Ezechiel 26:21      277817 verb nif impf 2sf, TIM.@Y:>I71J           ṯimmāṣᵊʔˌî           =                     
- 84 Exodus 20:13         39805 verb qal impf 2sm, T.,IR:Y@7375X00_S      ṯirṣˈāḥ              =                     
- 85 Leviticus 19:12      63980 verb nif impf 2pm, TIC.@B:<71W.           ṯiššāvᵊʕˌû           =                     
+ 83 Ezechiel 26:21      277818 verb nif impf 2sf, TIM.@Y:>I71J           ṯimmāṣᵊʔˌî           =                     
+ 84 Exodus 20:13         39806 verb qal impf 2sm, T.,IR:Y@7375X00_S      ṯirṣˈāḥ              =                     
+ 85 Leviticus 19:12      63981 verb nif impf 2pm, TIC.@B:<71W.           ṯiššāvᵊʕˌû           =                     
  86 Genesis 1:2             23 subs sf,          T:HO92WM               ṯᵊhˈôm               =                     
 
-  1 Deuteronomium 22:27 105847 subs sf,          HA45-N.A<:AR@H03          => *hˈa*nnaʕᵃrˌā             < ~ *hˈa*nnaʕᵃrā              # qetiv/kere
+  1 Deuteronomium 22:27 105848 subs sf,          HA45-N.A<:AR@H03          => *hˈa*nnaʕᵃrˌā             < ~ *hˈa*nnaʕᵃrā              # qetiv/kere
         orig                 HA45-N.A<:AR@H03
         trim                 ha45-n.a<:ar@h03
         accents              h!a-n.a<:ar@h
@@ -161,7 +161,7 @@
         cleanup              *ʔohᵒlˈô
 
 
-  3 Samuel_I 23:4       155397 nmpr sm,          JHW@80H_S                 => [yhwˈāh]                  < =                           # tetragrammaton with _S
+  3 Samuel_I 23:4       155398 nmpr sm,          JHW@80H_S                 => [yhwˈāh]                  < =                           # tetragrammaton with _S
         orig                 [ JHW@80H ]
         trim                 [ jhw@80h ]
         accents              [ jhw!@h ]
@@ -310,7 +310,7 @@
         cleanup              yyammˈîm
 
 
-  6 Samuel_I 1:11       141747 subs sm,          B.@-<:@NI74J              => boʕᵒnˈî                   < =                           # qamets qatan, assimilation in preposition
+  6 Samuel_I 1:11       141748 subs sm,          B.@-<:@NI74J              => boʕᵒnˈî                   < =                           # qamets qatan, assimilation in preposition
         orig                 B.@-<:@NI74J
         trim                 b.@-<:@ni74j
         accents              b.@-<:@n!ij
@@ -535,7 +535,7 @@
         cleanup              ṯˈôḵ
 
 
- 11 Genesis 31:32        16972 verb qal perf 3sf,+am G.:N@B@75TAM00            => gᵊnāvˈāṯam                < =                           # qamets in qal 3sf
+ 11 Genesis 31:32        16973 verb qal perf 3sf,+am G.:N@B@75TAM00            => gᵊnāvˈāṯam                < =                           # qamets in qal 3sf
         orig                 G.:N@B@75TAM
         trim                 g.:n@b@75tam
         accents              g.:n@b!@tam
@@ -566,7 +566,7 @@
         cleanup              gᵊnāvˈāṯam
 
 
- 12 Sacharia 14:2       308940 subs pm,          HA-B.@74T.I80JM           => habbˈāttˈîm               < =                           # qamets gadol, dagesh forte
+ 12 Sacharia 14:2       308941 subs pm,          HA-B.@74T.I80JM           => habbˈāttˈîm               < =                           # qamets gadol, dagesh forte
         orig                 HA-B.@74T.I80JM
         trim                 ha-b.@74t.i80jm
         accents              ha-b.!@t.!ijm
@@ -607,7 +607,7 @@
         cleanup              bbˈāttˈîm
 
 
- 13 Samuel_II 11:1      165711 subs pm,          HA-M.AL:>,KI81JM          => hammalḵˈîm                < =                           # rafe just before the kaf without dagesh: can be ignored
+ 13 Samuel_II 11:1      165712 subs pm,          HA-M.AL:>,KI81JM          => hammalḵˈîm                < =                           # rafe just before the kaf without dagesh: can be ignored
         orig                 HA-M.AL:>,KI81JM
         trim                 ha-m.al:>,ki81jm
         accents              ha-m.al:>,k!ijm
@@ -771,7 +771,7 @@
         cleanup              ḥˈōšeḵ
 
 
- 17 Genesis 49:2         27795 verb nif impv 2pm, HIQ.@B:Y71W.              => hiqqāvᵊṣˌû                < ~ hiqqāvᵊṣˈû                # qamets is long a, no accent marking in verb except merkha on last syllable
+ 17 Genesis 49:2         27796 verb nif impv 2pm, HIQ.@B:Y71W.              => hiqqāvᵊṣˌû                < ~ hiqqāvᵊṣˈû                # qamets is long a, no accent marking in verb except merkha on last syllable
         orig                 HIQ.@B:Y71W.
         trim                 hiq.@b:y71w.
         accents              hiq.@b:y/w.
@@ -801,7 +801,7 @@
         cleanup              hiqqāvᵊṣˌû
 
 
- 18 Jeremia 6:8         237777 verb nif impv 2sf, HIW.@S:RIJ03              => hiwwāsᵊrˌî                < ~ hiwwāsᵊrî                 # qamets is long a, no accent marking in verb, waw with dagesh is not long u here but double waw
+ 18 Jeremia 6:8         237778 verb nif impv 2sf, HIW.@S:RIJ03              => hiwwāsᵊrˌî                < ~ hiwwāsᵊrî                 # qamets is long a, no accent marking in verb, waw with dagesh is not long u here but double waw
         orig                 HIW.@S:RIJ03
         trim                 hiw.@s:rij03
         accents              hiw.@s:rij
@@ -861,7 +861,7 @@
         cleanup              hāyᵊṯˌā
 
 
- 20 Josua 7:21          116634 subs sm,+ij       H@->@95H:@LI73J           => hāʔˈohᵒlˌî                < ~ hāʔˈohᵒlˈî                # qamets gadol, no assimilation in article
+ 20 Josua 7:21          116635 subs sm,+ij       H@->@95H:@LI73J           => hāʔˈohᵒlˌî                < ~ hāʔˈohᵒlˈî                # qamets gadol, no assimilation in article
         orig                 H@->@95H:@LI73J
         trim                 h@->@95h:@li73j
         accents              h@->!@h:@l/ij
@@ -1060,7 +1060,7 @@
         cleanup              hˌû
 
 
- 25 Josua 7:14          116457 subs pm,          LA--B.@T.I80JM            => labbāttˈîm                < =                           # qamets gadol on the basis of other occurrences
+ 25 Josua 7:14          116458 subs pm,          LA--B.@T.I80JM            => labbāttˈîm                < =                           # qamets gadol on the basis of other occurrences
         orig                 LA--B.@T.I80JM
         trim                 la--b.@t.i80jm
         accents              la--b.@t.!ijm
@@ -1149,7 +1149,7 @@
         cleanup              yaʕᵃqˈōv
 
 
- 27 Jesaia 1:5          212144 subs sm,          L@-X:@LI80J               => loḥᵒlˈî                   < =                           # qamets qatan, assimilation in preposition
+ 27 Jesaia 1:5          212145 subs sm,          L@-X:@LI80J               => loḥᵒlˈî                   < =                           # qamets qatan, assimilation in preposition
         orig                 L@-X:@LI80J
         trim                 l@-x:@li80j
         accents              l@-x:@l!ij
@@ -1226,7 +1226,7 @@
         cleanup              lāmmā-
 
 
- 29 Deuteronomium 28:28 108639 subs sm,          L;B@75B00                 => lēvˈāv                    < =                           # qamets gadol
+ 29 Deuteronomium 28:28 108640 subs sm,          L;B@75B00                 => lēvˈāv                    < =                           # qamets gadol
         orig                 L;B@75B
         trim                 l;b@75b
         accents              l;b!@b
@@ -1328,7 +1328,7 @@
         cleanup              zzˈōṯ
 
 
- 31 Psalmi 119:99       332075 prep              L,I75J00                  => lˈî                       < =                           # rafe just after the lamed: can be ignored
+ 31 Psalmi 119:99       332076 prep              L,I75J00                  => lˈî                       < =                           # rafe just after the lamed: can be ignored
         orig                 L,I75J
         trim                 l,i75j
         accents              l,!ij
@@ -1363,7 +1363,7 @@
         cleanup              lˈî
 
 
- 32 Josua 7:10          116333 inrg              L@74M.@H                  => lˈāmmā                    < =                           # qamets gadol
+ 32 Josua 7:10          116334 inrg              L@74M.@H                  => lˈāmmā                    < =                           # qamets gadol
         orig                 L@74M.@H
         trim                 l@74m.@h
         accents              l!@m.@h
@@ -1398,7 +1398,7 @@
         cleanup              lˈāmmā
 
 
- 33 Exodus 12:39         35554 verb hit infc ---, L:-HIT:MAH:M;80H.A        => lᵊhiṯmahmˈēₐh             < =                           # furtive patah with heh mappiq
+ 33 Exodus 12:39         35555 verb hit infc ---, L:-HIT:MAH:M;80H.A        => lᵊhiṯmahmˈēₐh             < =                           # furtive patah with heh mappiq
         orig                 L:-HIT:MAH:M;80H.A
         trim                 l:-hit:mah:m;80h.a
         accents              l:-hit:mah:m!;h.a
@@ -1722,7 +1722,7 @@
         cleanup              ṣṣalʕōṯˈāʸw
 
 
- 39 Genesis 35:18        19389 verb qal perf 3sf, M;80T@H                   => mˈēṯā                     < =                           # qamets in qal  perf 3sf
+ 39 Genesis 35:18        19390 verb qal perf 3sf, M;80T@H                   => mˈēṯā                     < =                           # qamets in qal  perf 3sf
         orig                 M;80T@H
         trim                 m;80t@h
         accents              m!;t@h
@@ -1753,7 +1753,7 @@
         cleanup              mˈēṯā
 
 
- 40 Jesaia 43:26        227319 verb nif impf 1p-, NIC.@P:V@73H              => niššāfᵊṭˌā                < ~ niššāfᵊṭˈā                # qamets is long a, no accent marking in verb except tipeha on last syllable
+ 40 Jesaia 43:26        227320 verb nif impf 1p-, NIC.@P:V@73H              => niššāfᵊṭˌā                < ~ niššāfᵊṭˈā                # qamets is long a, no accent marking in verb except tipeha on last syllable
         orig                 NIC.@P:V@73H
         trim                 nic.@p:v@73h
         accents              nic.@p:v/@h
@@ -1813,7 +1813,7 @@
         cleanup              nāfᵊlˌû
 
 
- 42 Psalmi 11:3         312008 verb qal perf 3sm, P.@<@75L00                => pāʕˈāl                    < =                           # qamets gadol in verb
+ 42 Psalmi 11:3         312009 verb qal perf 3sm, P.@<@75L00                => pāʕˈāl                    < =                           # qamets gadol in verb
         orig                 P.@<@75L
         trim                 p.@<@75l
         accents              p.@<!@l
@@ -1848,7 +1848,7 @@
         cleanup              pāʕˈāl
 
 
- 43 Habakuk 3:2         302811 subs sm,+:k@      P.@45<@L:K@03             => pˈoʕolᵊḵā                 < =                           # qamets qatan in front of other qamets qatan (Lettinga 12th)
+ 43 Habakuk 3:2         302812 subs sm,+:k@      P.@45<@L:K@03             => pˈoʕolᵊḵā                 < =                           # qamets qatan in front of other qamets qatan (Lettinga 12th)
         orig                 P.@45<@L:K@03
         trim                 p.@45<@l:k@03
         accents              p.!@<@l:k@
@@ -1884,7 +1884,7 @@
         cleanup              pˈoʕolᵊḵā
 
 
- 44 Proverbia 22:21     352903 subs sm,          QO73C:V:                  => qˌōšṭ                     < =                           # silent schwa on last consonant after preceding consonant with also schwa in a noun
+ 44 Proverbia 22:21     352904 subs sm,          QO73C:V:                  => qˌōšṭ                     < =                           # silent schwa on last consonant after preceding consonant with also schwa in a noun
         orig                 QO73C:V:
         trim                 qo73c:v:
         accents              q/oc:v:
@@ -1954,7 +1954,7 @@
         cleanup              rāqˌîₐʕ
 
 
- 46 Ezechiel 31:4       279831 verb piel perf 3sf,+hw. RO45M:M@92T:HW.           => rˈōmᵊmˈāṯᵊhû              < =                           # qamets is long a
+ 46 Ezechiel 31:4       279832 verb piel perf 3sf,+hw. RO45M:M@92T:HW.           => rˈōmᵊmˈāṯᵊhû              < =                           # qamets is long a
         orig                 RO45M:M@92T:HW.
         trim                 ro45m:m@92t:hw.
         accents              r!om:m!@t:hw.
@@ -1989,7 +1989,7 @@
         cleanup              rˈōmᵊmˈāṯᵊhû
 
 
- 47 Jesaia 22:10        219122 verb qal wayq 2pm, WA-T.IT,:YW.03            => wattiṯṣˌû                 < =                           # rafe just after the taf without dagesh: can be ignored
+ 47 Jesaia 22:10        219123 verb qal wayq 2pm, WA-T.IT,:YW.03            => wattiṯṣˌû                 < =                           # rafe just after the taf without dagesh: can be ignored
         orig                 WA-T.IT,:YW.03
         trim                 wa-t.it,:yw.03
         accents              wa-t.it,:yw.
@@ -2030,7 +2030,7 @@
         cleanup              ttiṯṣˌû
 
 
- 48 Samuel_II 4:4       162682 verb qal wayq 3sf, WA-T.@NO80S               => wattānˈōs                 < =                           # qamets gadol
+ 48 Samuel_II 4:4       162683 verb qal wayq 3sf, WA-T.@NO80S               => wattānˈōs                 < =                           # qamets gadol
         orig                 WA-T.@NO80S
         trim                 wa-t.@no80s
         accents              wa-t.@n!os
@@ -2431,7 +2431,7 @@
         cleanup              niśrᵊfˌā
 
 
- 57 Jeremia 20:17       244909 subs sm,+@h,      W:-RAX:M@73H,             => wᵊraḥmˌā                  < =                           # rafe just after the he: he is mater lectionis
+ 57 Jeremia 20:17       244910 subs sm,+@h,      W:-RAX:M@73H,             => wᵊraḥmˌā                  < =                           # rafe just after the he: he is mater lectionis
         orig                 W:-RAX:M@73H,
         trim                 w:-rax:m@73h,
         accents              w:-rax:m/@h,
@@ -2734,7 +2734,7 @@
         cleanup              mᵊḥiyyyāʔˈēl
 
 
- 64 Samuel_II 15:10     169091 verb qal infc ---,+:akem C@M:<:AKEM03              => šomʕᵃḵˌem                 < =                           # qamets qatan
+ 64 Samuel_II 15:10     169092 verb qal infc ---,+:akem C@M:<:AKEM03              => šomʕᵃḵˌem                 < =                           # qamets qatan
         orig                 C@M:<:AKEM03
         trim                 c@m:<:akem03
         accents              c@m:<:akem
@@ -2915,7 +2915,7 @@
         cleanup              rāqîˌₐʕ
 
 
- 67 Jeremia 10:20       240226 subs sm,+ij       >@H:@LI80J                => ʔohᵒlˈî                   < =                           # qamets qatan, assimilation inside word
+ 67 Jeremia 10:20       240227 subs sm,+ij       >@H:@LI80J                => ʔohᵒlˈî                   < =                           # qamets qatan, assimilation inside word
         orig                 >@H:@LI80J
         trim                 >@h:@li80j
         accents              >@h:@l!ij
@@ -2950,7 +2950,7 @@
         cleanup              ʔohᵒlˈî
 
 
- 68 Iob 19:4            340657 advb              >@M:N@71M                 => ʔomnˌām                   < =                           # qamets qatan and then gadol
+ 68 Iob 19:4            340658 advb              >@M:N@71M                 => ʔomnˌām                   < =                           # qamets qatan and then gadol
         orig                 >@M:N@71M
         trim                 >@m:n@71m
         accents              >@m:n/@m
@@ -2985,7 +2985,7 @@
         cleanup              ʔomnˌām
 
 
- 69 Deuteronomium 25:18 107114 subs pm,+k@       >A45XARE80JK@             => ʔˈaḥarˈeʸḵā               < =                           # segol plus yod: glide
+ 69 Deuteronomium 25:18 107115 subs pm,+k@       >A45XARE80JK@             => ʔˈaḥarˈeʸḵā               < =                           # segol plus yod: glide
         orig                 >A45XARE80JK@
         trim                 >a45xare80jk@
         accents              >!axar!ejk@
@@ -3189,7 +3189,7 @@
         cleanup              pᵊnˌê
 
 
- 73 Proverbia 10:10     349419 subs sf,          <AY.@92BET                => ʕaṣṣˈāveṯ                 < =                           # qamets is gadol
+ 73 Proverbia 10:10     349420 subs sf,          <AY.@92BET                => ʕaṣṣˈāveṯ                 < =                           # qamets is gadol
         orig                 <AY.@92BET
         trim                 <ay.@92bet
         accents              <ay.!@bet
@@ -3224,7 +3224,7 @@
         cleanup              ʕaṣṣˈāveṯ
 
 
- 74 Jesaia 1:1          212081 nmpr sm,          <UZ.IJ.@94HW.             => ʕuzziyyˈāhû               < =                           # yod with dagesh is not lengthening hireq
+ 74 Jesaia 1:1          212082 nmpr sm,          <UZ.IJ.@94HW.             => ʕuzziyyˈāhû               < =                           # yod with dagesh is not lengthening hireq
         orig                 <UZ.IJ.@94HW.
         trim                 <uz.ij.@94hw.
         accents              <uz.ij.!@hw.
@@ -3259,7 +3259,7 @@
         cleanup              ʕuzziyyˈāhû
 
 
- 75 Joel 1:17           294303 verb qal perf 3p-, <@B:C74W.                 => ʕāvᵊšˈû                   < =                           # qamets: gadol maintained because of verb paradigm
+ 75 Joel 1:17           294304 verb qal perf 3p-, <@B:C74W.                 => ʕāvᵊšˈû                   < =                           # qamets: gadol maintained because of verb paradigm
         orig                 <@B:C74W.
         trim                 <@b:c74w.
         accents              <@b:c!w.
@@ -3392,7 +3392,7 @@
         cleanup              ʕˈōśeh
 
 
- 78 Numeri 8:22          75664 subs sf,+@m       <:ABO45D@T@M03            => ʕᵃvˈōḏāṯām                < =                           # first qamets is gadol because of other occurrences, second qamets is gadol because of ending
+ 78 Numeri 8:22          75665 subs sf,+@m       <:ABO45D@T@M03            => ʕᵃvˈōḏāṯām                < =                           # first qamets is gadol because of other occurrences, second qamets is gadol because of ending
         orig                 <:ABO45D@T@M03
         trim                 <:abo45d@t@m03
         accents              <:ab!od@t@m
@@ -3542,7 +3542,7 @@
         cleanup              ḥayyˈeʸḵā
 
 
- 81 Exodus 28:3          43768 subs sf,          X@K:M@92H                 => ḥoḵmˈā                    < =                           # qamets qatan
+ 81 Exodus 28:3          43769 subs sf,          X@K:M@92H                 => ḥoḵmˈā                    < =                           # qamets qatan
         orig                 X@K:M@92H
         trim                 x@k:m@92h
         accents              x@k:m!@h
@@ -3612,7 +3612,7 @@
         cleanup              ṣāḥˈāqt
 
 
- 83 Ezechiel 26:21      277817 verb nif impf 2sf, TIM.@Y:>I71J              => ṯimmāṣᵊʔˌî                < =                           # qamets is long a, no accent marking in verb except merkha on the last syllable
+ 83 Ezechiel 26:21      277818 verb nif impf 2sf, TIM.@Y:>I71J              => ṯimmāṣᵊʔˌî                < =                           # qamets is long a, no accent marking in verb except merkha on the last syllable
         orig                 TIM.@Y:>I71J
         trim                 tim.@y:>i71j
         accents              tim.@y:>/ij
@@ -3642,7 +3642,7 @@
         cleanup              ṯimmāṣᵊʔˌî
 
 
- 84 Exodus 20:13         39805 verb qal impf 2sm, T.,IR:Y@7375X00_S         => ṯirṣˈāḥ                   < =                           # rafe on the taw with dagesh: cancels dagesh
+ 84 Exodus 20:13         39806 verb qal impf 2sm, T.,IR:Y@7375X00_S         => ṯirṣˈāḥ                   < =                           # rafe on the taw with dagesh: cancels dagesh
         orig                 T.,IR:Y@7375X
         trim                 t.,ir:y@7375x
         accents              t.,ir:y!@x
@@ -3677,7 +3677,7 @@
         cleanup              ṯirṣˈāḥ
 
 
- 85 Leviticus 19:12      63980 verb nif impf 2pm, TIC.@B:<71W.              => ṯiššāvᵊʕˌû                < =                           # qamets is long a, no accent marking in verb except merkha on last syllable
+ 85 Leviticus 19:12      63981 verb nif impf 2pm, TIC.@B:<71W.              => ṯiššāvᵊʕˌû                < =                           # qamets is long a, no accent marking in verb except merkha on last syllable
         orig                 TIC.@B:<71W.
         trim                 tic.@b:<71w.
         accents              tic.@b:</w.
