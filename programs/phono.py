@@ -66,32 +66,32 @@
 # 1. Showcases and tests: how the function solves particular classes of problems.
 #    The *cases* file shows a set of cases that have been generated in the last run.
 #    
-# The *tests* files show a prepared set of cases, against which to test new versions of the algorithm. These results have been obtained on version `4b` of the 
+# The *tests* files show a prepared set of cases, against which to test new versions of the algorithm. These results have been obtained on version `c` of the 
 # [BHSA dataset](https://etcbc.github.io/bhsa).
-#    1. [mixed](https://raw.githubusercontent.com/ETCBC/phono/programs/4b/mixed.html)
+#    1. [mixed](mixedc.html)
 #       with logfile
-#       [mixed_debug](https://raw.githubusercontent.com/ETCBC/phono/programs/4b/mixed_debug.txt).
-#    1. [qamets_nonverb cases](https://raw.githubusercontent.com/ETCBC/phono/programs/4b/qamets_nonverb_cases.html)
+#       [mixed_debug](mixed_debugc.txt).
+#    1. [qamets_nonverb cases](qamets_nonverb_casesc.html)
 #       and
-#       [qamets_nonverb tests](https://raw.githubusercontent.com/ETCBC/phono/programs/4b/qamets_nonverb_tests.html)
+#       [qamets_nonverb tests](qamets_nonverb_testsc.html)
 #       with logfile
-#       [qamets_nonverb_tests_debug](https://raw.githubusercontent.com/ETCBC/phono/programs/4b/qamets_nonverb_tests_debug.txt). 
+#       [qamets_nonverb_tests_debug](qamets_nonverb_tests_debugc.txt). 
 #       The result of searching the corpus for related occurrences and 
 #       having them vote for qatan/gadol interpretation of the qamets.
-#    1. [qamets_verb cases](https://raw.githubusercontent.com/ETCBC/phono/programs/4b/qamets_verb_cases.html)
+#    1. [qamets_verb cases](qamets_verb_casesc.html)
 #       and
-#       [qamets_verb tests](https://raw.githubusercontent.com/ETCBC/phono/programs/4b/qamets_verb_tests.html)
+#       [qamets_verb tests](qamets_verb_testsc.html)
 #       with logfile
-#       [qamets_verb_tests_debug](https://raw.githubusercontent.com/ETCBC/phono/programs/4b/qamets_verb_tests_debug.txt).
+#       [qamets_verb_tests_debug](qamets_verb_tests_debugc.txt).
 #       The result of suppressing the qatan interpretation of the qamets regardless of accent
 #       for a definite set of *verb forms*.
-#    1. [qamets_prs cases](https://raw.githubusercontent.com/ETCBC/phono/programs/4b/qamets_prs_cases.html)
+#    1. [qamets_prs cases](qamets_prs_casesc.html)
 #       and
-#       [qamets_prs tests](https://raw.githubusercontent.com/ETCBC/phono/programs/4b/qamets_prs_tests.html)
+#       [qamets_prs tests](qamets_prs_testsc.html)
 #       with logfile
-#       [qamets_prs_tests_debug](https://raw.githubusercontent.com/ETCBC/phono/programs/4b/qamets_prs_tests_debug.txt).
+#       [qamets_prs_tests_debug](qamets_prs_tests_debugc.txt).
 #       The result of suppressing the qatan interpretation of the qamets in *pronominal suffixes*.
-# 1. A [plain text](https://raw.githubusercontent.com/ETCBC/phono/programs/combi.txt) with the complete text in BHSA transliteration and phonetic transcription,
+# 1. A [plain text](combi.txt) with the complete text in BHSA transliteration and phonetic transcription,
 #    verse by verse.
 
 # # Overview of the method
@@ -123,7 +123,7 @@
 #    occurrences. In cases where we know that the majority votes wrong, we have intervened.
 #    
 # ### Qamets work hypothesis
-# Note, that in the the *non-verb qamets puzzles* we have tacitly made the assumption that qamets qatan and gadol are not phonological variants of each other.
+# Note, that in the *non-verb qamets puzzles* we have tacitly made the assumption that qamets qatan and gadol are not phonological variants of each other.
 # In other words, it never occurs that a qamets gadol becomes shortened into a qamets qatan.
 # From the grammar rules it follows that short versions of the qamets can only be
 # 
@@ -168,7 +168,7 @@
 # 
 # We determine "primary" and "secondary" stress in our transliteration, but this must not be taken in a phonetic sense.
 # Every syllable that carries an accent pointing will get a primary stress mark.
-# However, a few specific accent pointings are not deemed to produce an an accent, and an other group of accents
+# However, a few specific accent pointings are not deemed to produce an accent, and an other group of accents
 # is deemed to produce only a secondary accent.
 # The last syllable of a word also gets a secondary accent by default.
 # We have not yet tried to be more precise in this, so *segolates* do not get the treatment they deserve.
@@ -201,7 +201,7 @@
 # represent them with a dot below: `ṭ ḥ ṣ`.
 # ק is just `q`.
 # 
-# א and ע translate to translate to `ʕ` and `ʔ`.
+# א and ע translate to `ʕ` and `ʔ`.
 # 
 # שׁ and שׂ translate to `š` and `ś`.
 # ס is just `s`.
@@ -261,7 +261,7 @@
 # 
 # We base the phonetics on the (vocalized) qere, if a qere is present.
 # The ketiv is then ignored. We precede each such word by a `*` to indicate that the qere
-# is deviant from the ketiv. Using the data view it is possible to see what the ketiv is. 
+# is deviant from the ketiv. Using the data view in SHEBANQ it is possible to see what the ketiv is. 
 # 
 # ## Cleaning up
 # 
@@ -270,7 +270,7 @@
 # And it can be argued that every schwa is silent.
 # If you do not care for schwas and accents, it is easy to remove them.
 # Also, if you find the results in separating the qamets into qatan and gadol unsatisfying or irrelevant, you can
-# just replace them both bij a single symbol, such as `å`.
+# just replace them both by a single symbol, such as `å`.
 # 
 # ## Testing
 # 
@@ -379,7 +379,7 @@ api.makeAvailableIn(globals())
 
 # ## Patterns
 
-# In[7]:
+# In[60]:
 
 
 # punctuation
@@ -428,9 +428,9 @@ noorigspace = re.compile('''
 ''', re.X)
 
 # setumah and petuhah
-# Usually, setumah and petuhah occurr after the end of verse sign.
+# Usually, setumah and petuhah occur after the end of verse sign.
 # In that case we can strip them.
-# Sometimes they occur interword. Then we have to replace them by a space
+# Sometimes they occur inter-word. Then we have to replace them by a space
 # because the words are otherwise adjacent.
 # This operation must be performed before originals are glued together,
 # because the _S and _P can only be reliably detected if they are at the end of a word.
@@ -715,12 +715,12 @@ for (sym, let, glyph) in specials2:
 # 
 # <table>
 # <tr><th>kind</th><th>greedy</th><th>non-greedy</th><th>possessive</th></tr>
-# <tr><th>0 or more</th><td>``*``</td><td>``*?``</td><td>``*+``</td></tr>
-# <tr><th>1 or more</th><td>``+``</td><td>``+?``</td><td>``++``</td></tr>
+#   <tr><th>0 or more</th><td><code>*</code></td><td><code>*?</code></td><td><code>*+</code></td></tr>
+# <tr><th>1 or more</th><td><code>+</code></td><td><code>+?</code></td><td><code>++</code></td></tr>
 # <tr><th>at least *n*, at most *m*</th>
-#     <td>``{``*n*``,`` *m*``}``</td>
-#     <td>``{``*n*``,`` *m*``}?``</td>
-#     <td>``{``*n*``,`` *m*``}+``</td>
+#     <td><code>{</code>*n*<code>,</code> *m*<code>}</code></td>
+#     <td><code>{</code>*n*<code>,</code> *m*<code>}?</code></td>
+#     <td><code>{</code>*n*<code>,</code> *m*<code>}+</code></td>
 #  </tr>
 # </table>
 # 
@@ -1977,7 +1977,7 @@ for fmt in T.formats:
 # 
 # After this tests and examples are run.
 
-# In[ ]:
+# In[40]:
 
 
 if SCRIPT:
@@ -1994,6 +1994,22 @@ if SCRIPT:
 #     
 # The testing routine executes all tests, checks the results, produces on-screen output, debug output in file, and pretty output in a HTML file.
 
+# Load the features needed for testing.
+
+# In[48]:
+
+
+api = TF.load('''
+        qere qere_trailer
+        g_word_utf8 g_cons_utf8 trailer
+        g_word g_cons lex_utf8 lex lex0
+        sp vs vt gn nu ps st
+        uvf prs g_prs pfm vbs vbe
+        languageISO
+''')
+api.makeAvailableIn(globals())
+
+
 # ## Auxiliary functions
 # 
 # ### Composing tests
@@ -2006,7 +2022,7 @@ if SCRIPT:
 # If there are multiple, we want the longest.
 # If there are multiple longest ones, we want the first that occurs in the passage.
 
-# In[32]:
+# In[49]:
 
 
 def get_hebrew(orig):
@@ -2041,7 +2057,7 @@ def maketest(ws=None, orig=None, passageStr=None, expected=None, comment=None):
 # 
 # Here are some HTML/CSS definitions for formatting test results.
 
-# In[33]:
+# In[50]:
 
 
 def h_esc(txt):
@@ -2138,7 +2154,7 @@ test_html_tail = '''</table>
 # If it is a ``passage``, the node will be looked up on the basis of it plus ``orig``.
 # If the node is found, it will be used to get the ``lex_info``, if not, the given ``lex_info`` will be used.
 
-# In[41]:
+# In[51]:
 
 
 def vfname(inpath):
@@ -2271,7 +2287,7 @@ def runtests(title, testsource, outfilename, htmlfilename, order=True, screen=Fa
 # 
 # It produces overviews of the cases where the corpus dependent rules have been applied.
 
-# In[42]:
+# In[52]:
 
 
 def showcases(title, stats, testsource, order=True):
@@ -2362,7 +2378,7 @@ def showcases(title, stats, testsource, order=True):
 
 # ## Test the existing examples
 
-# In[43]:
+# In[53]:
 
 
 for tname in [
@@ -2381,7 +2397,7 @@ for tname in [
 
 # ### Testing: Special cases
 
-# In[44]:
+# In[54]:
 
 
 special_tests = [
@@ -2419,7 +2435,7 @@ runtests(
 # 
 # We have generated a number of corrections of the qamets interpretation in non verbs. We have applied exceptions to the corrections. Here is the list of representative occurrences where corrections and/or exceptions have been applied.
 
-# In[45]:
+# In[55]:
 
 
 info('Showing lexemes with varied occurrences')
@@ -2475,7 +2491,7 @@ showcases(
 # 
 # ### Look up the cases
 
-# In[46]:
+# In[56]:
 
 
 qq_verb_words = set()
@@ -2505,7 +2521,7 @@ info('{} cases'.format(len(qq_verb_specials)))
 
 # ### Show the cases
 
-# In[47]:
+# In[57]:
 
 
 info('Showing verb cases')
@@ -2546,7 +2562,7 @@ showcases(
 # 
 # ### Look up the cases
 
-# In[48]:
+# In[58]:
 
 
 qq_prs_words = set()
@@ -2572,7 +2588,7 @@ info('{} potential cases'.format(len(qq_prs_specials)))
 
 # ### Show the cases
 
-# In[49]:
+# In[59]:
 
 
 info('Showing prs cases')
