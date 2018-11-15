@@ -14,6 +14,8 @@ The results of this study are being delivered in several forms, summarized here.
 * **Data module**: a set of 
   [features](https://github.com/ETCBC/phono/tree/master/tf)
   in **text-fabric** format;
+* **Documentation**: a
+  [Jupyter notebook](https://nbviewer.jupyter.org/github/etcbc/phono/blob/master/programs/phono.ipynb).
 * **Program code**: a
   [Jupyter notebook](https://github.com/ETCBC/phono/tree/master/programs).
 
