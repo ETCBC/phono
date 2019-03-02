@@ -1,4 +1,4 @@
-
+#!/usr/bin/env python
 # coding: utf-8
 
 # <img align="right" src="images/dans-small.png"/>
@@ -185,10 +185,12 @@
 # 
 # ### Consonants
 # 
-# Provided it is not part of a long vowel, we write yod as `y`,
+# Provided it is not part of a long vowel, we write `י` as `y`,
 # whilst `j` would be more in line with the phonetic alphabet.
 # 
 # Likewise, we write `ו` as w, if it is not part of a long vowel.
+# If a word ends in `יו` the `ו` is not a mater lectionis, and the `י` gets elided.
+# We represent this phonetically as `ʸw`.
 # 
 # With regards to the `BGDKPT` letters,
 # it would have been attractive to use the letters `b g d k p t` without 
@@ -201,7 +203,8 @@
 # represent them with a dot below: `ṭ ḥ ṣ`.
 # ק is just `q`.
 # 
-# א and ע translate to `ʕ` and `ʔ`.
+# 
+# ע and א translate to `ʕ` and `ʔ`.
 # 
 # שׁ and שׂ translate to `š` and `ś`.
 # ס is just `s`.
@@ -224,7 +227,7 @@
 # 
 # ### Vowels
 # 
-# The short vowels (patah, segol, hireq) are just `a e i` and qibbuts is just `u`.
+# The short vowels (patah, segol, hireq, qamets qatan, qibbuts) are just `a e i o u`.
 # 
 # However, the *furtive* patah is a `ₐ` in front of its consonant.
 # 
@@ -287,7 +290,7 @@ import sys, os, collections, re
 from unicodedata import normalize
 import utils
 from tf.fabric import Fabric
-from tf.transcription import Transcription
+from tf.writing.transcription import Transcription
 
 
 # # Pipeline
@@ -2619,4 +2622,10 @@ showcases(
     pcases,
     order=True,
 )
+
+
+# In[ ]:
+
+
+
 
