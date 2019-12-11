@@ -1,3 +1,4 @@
+[![SWH](https://archive.softwareheritage.org/badge/origin/https://github.com/ETCBC/phono/)](https://archive.softwareheritage.org/browse/origin/https://github.com/ETCBC/phono/)
 [![DOI](https://zenodo.org/badge/104842823.svg)](https://zenodo.org/badge/latestdoi/104842823)
 [![etcbc](programs/images/etcbc.png)](http://www.etcbc.nl)
 
