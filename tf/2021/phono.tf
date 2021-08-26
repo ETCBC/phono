@@ -5,7 +5,7 @@
 @source=Phono Notebook applied to BHSA Data
 @valueType=str
 @writtenBy=Text-Fabric
-@dateWritten=2021-06-28T11:35:42Z
+@dateWritten=2021-08-24T11:16:01Z
 
 bᵊ
 rēšˌîṯ
@@ -11331,7 +11331,8 @@ yyˈāqom
 wa
 yyˈēleḵ
 ʔel-
-ʔᵃrˌam nˈahᵃrˌayim
+ʔᵃrˌam
+nˈahᵃrˌayim
 ʔel-
 ʕˌîr
 nāḥˈôr
@@ -105987,7 +105988,8 @@ ben-
 bᵊʕˈôr
 mi
 ppᵊṯˈôr
-ʔᵃrˌam nahᵃrˌayim
+ʔᵃrˌam
+nahᵃrˌayim
 lᵊ
 qˈallˈekkā
 wᵊ
@@ -128877,7 +128879,8 @@ bᵊ
 yˌaḏ
 kûšˈan rišʕāṯˈayim
 mˌeleḵ
-ʔᵃrˈam nahᵃrˈāyim
+ʔᵃrˈam
+nahᵃrˈāyim
 wa
 yyaʕavᵊḏˈû
 vᵊnˈê-
@@ -137801,7 +137804,7 @@ hirbˌā
 ḥᵃlālˈênû
 wˈa
 yᵊhˌî
-ḵy
+*kᵊ
 *ṭˈôv
 libbˈām
 wa
@@ -171605,7 +171608,7 @@ zzˌeh
 lˈō
 ṯᵊvaśśˈēr
 kˈî-
-ʕl
+*ʕal-
 *kˌēn
 ben-
 ha
@@ -227816,7 +227819,7 @@ vaddˈî
 rōqˌaʕ
 hā
 ʔˌāreṣ
-my
+*mē
 *ʔittˈî
 mēfˌēr
 ʔōṯˈôṯ
@@ -320258,7 +320261,8 @@ lammˈēḏ
 bᵊ
 haṣṣôṯˌô
 ʔˌeṯ
-ʔᵃrˈam nahᵃrayim
+ʔᵃrˈam
+nahᵃrayim
 wᵊ
 ʔeṯ-
 ʔᵃrˈam
@@ -345554,7 +345558,7 @@ yyāmeʸḵˌā
 ṣiwwˈîṯā
 bˈōqer
 *yiddˌaʕtā
-h
+*ha
 *ššˈaḥar
 mᵊqōmˈô
 ˈle
@@ -363619,8 +363623,8 @@ fᵊnê-
 ṣˈār . s
 wa
 yyēṣˌē
-mn
-*baṯ-
+*mi
+*bbaṯ-
 ṣiyyˌôn
 kol-
 hᵃḏārˈāh
@@ -364994,7 +364998,7 @@ baṯ-
 ʕammˈî
 lᵊ
 ʔaḵzˈār
-ḵy
+*ka
 *
 *yᵊʕēnˌîm
 ba
@@ -384055,7 +384059,7 @@ bᵊ
 ḥômˈōṯ
 yᵊrûšālˈaim
 ʔᵃšer-
-hm
+*hˈēm
 *pᵊrûṣˈîm
 û
 šᵊʕārˌeʸhā
@@ -401295,10 +401299,12 @@ li
 śᵊkkˈōr
 lāhˌem
 min-
-ʔᵃrˌam nahᵃrˈayim
+ʔᵃrˌam
+nahᵃrˈayim
 û
 min-
-ʔᵃrˈam maʕᵃḵā
+ʔᵃrˈam
+maʕᵃḵˌā
 û
 mi
 ṣṣôvˈā
@@ -405108,7 +405114,7 @@ hā
 ʕannᵊṯōṯˌî
 *la
 *
-vn
+*bbˈēn
 *yᵊmînˈî
 wᵊ
 ʕˌal
