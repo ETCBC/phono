@@ -2,8 +2,10 @@
 
 [![SWH](https://archive.softwareheritage.org/badge/origin/https://github.com/ETCBC/phono/)](https://archive.softwareheritage.org/browse/origin/https://github.com/ETCBC/phono/)
 [![DOI](https://zenodo.org/badge/104842823.svg)](https://zenodo.org/badge/latestdoi/104842823)
+
 [![etcbc](programs/images/etcbc.png)](http://www.etcbc.nl)
 [![dans](programs/images/dans.png)](https://dans.knaw.nl/en)
+[![tf](programs/images/tf-small.png)](https://annotation.github.io/text-fabric/tf)
 
 ### BHSA Family
 
@@ -38,9 +40,6 @@ The results of this study are being delivered in several forms, summarized here.
   [Jupyter notebook](https://nbviewer.jupyter.org/github/etcbc/phono/blob/master/programs/phono.ipynb).
 * **Program code**: a
   [Jupyter notebook](https://github.com/ETCBC/phono/tree/master/programs).
-
-![tf](programs/images/tf-small.png)
-[![dans](programs/images/dans.png)](https://www.dans.knaw.nl)
 
 ## Author
 * [Dirk Roorda](https://pure.knaw.nl/portal/en/persons/dirk-roorda) -
