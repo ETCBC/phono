@@ -4,16 +4,16 @@
 # <img align="right" src="images/dans-small.png"/>
 # <img align="right" src="images/tf-small.png"/>
 # <img align="right" src="images/etcbc.png"/>
-#
-#
+# 
+# 
 # # Phonetic Transliteration of Hebrew Masoretic Text
-#
+# 
 # # Frequently asked questions
-#
+# 
 # Q: *What is the use of a phonetic transliteration of the Hebrew Bible? What can anyone wish beyond the careful, meticulous Masoretic system of consonants, vowels and accents?*
-#
+# 
 # A: Several things:
-#
+# 
 # * the Hebrew Bible may be subject of study in various fields,
 #   where the people involved do not master the Hebrew script;
 #   a phonetic transcription removes a hurdle for them.
@@ -22,20 +22,20 @@
 #   when using the Hebrew script.
 # * in phonetics and language learning theory, it is important to represent the sounds without being burdened
 #   by the idiosyncracies of the writing system and the spelling.
-#
+# 
 # Q: *But surely, there already exist transliterations of Hebrew? Why not use them?*
-#
+# 
 # Here are a few pragmatic reasons:
-#
+# 
 # * we want to be able to *compute* a transliteration based upon our own data;
 # * we want to gain insight in to what extent the transliteration can be purely rule-based, and to what extent
 #   it depends on lexical information that you just need to know;
 # * we want to make available a well documented transliteration, that can be studied, borrowed and improved by others.
-#
+# 
 # Q: *But how **good** is your transliteration?*
-#
+# 
 # we do not know, ..., yet. A few remarks though:
-#
+# 
 # * we have applied most of the *rules* that we could find in Hebrew grammars;
 # * we have suspended some of the rules for some verb paradigms where it is known that they lead to incorrect results
 # * where the rules did not suffice, we have searched the corpus for other occurrences of the same word, to get clues;
@@ -44,28 +44,28 @@
 # * we have a few tables of all cases where the algorithm has made corpus based decisions and lexical decisions
 # * we are open for your corrections: login into [SHEBANQ](https://shebanq.ancient-data.org), go to a passage with         offending phonetic transliteration, and make a manual note. **Tip:** Give that note the keyword ``phono``, then we
 #   will collect them.
-#
+# 
 # Q: *To me, this is not entirely satisfying.*
-#
+# 
 # A: Fair enough. Consider jumping to [Bible Online Learner](http://bibleol.3bmoodle.dk/text/show_text),
 # where they have built in a pretty good transliteration, based on a different method of rule application. It is documented in an article by Nicolai Winther-Nielsen:
 # [Transliteration of Biblical Hebrew for the Role-Lexical Module](http://www.see-j.net/index.php/hiphil/article/view/62)
 # and additional information can be found in Claus Tøndering's
 # [Bible Online Learner, Software on GitHub](https://github.com/EzerIT/BibleOL).
 # See also [Lex: A software project for linguists](http://www.see-j.net/index.php/hiphil/article/view/60/56).
-#
+# 
 # We are planning to conduct an automatic comparison of both transliteration schemes over the whole corpus.
-#
+# 
 # Q: *Who is the **we**?*
-#
+# 
 # That is the author of this notebook, [Dirk Roorda](mailto:dirk.roorda@dans.knaw.nl), working together with Martijn Naaijer and getting input from Nicolai Winther-Nielsen and Wido van Peursen.
 
 # # Overview of the results
-#
+# 
 # 1. The main result is a python function ``phono(``*etcbc_original*``, ...): ``*phonetic transliteration*.
 # 1. Showcases and tests: how the function solves particular classes of problems.
 #    The *cases* file shows a set of cases that have been generated in the last run.
-#
+# 
 # The *tests* files show a prepared set of cases, against which to test new versions of the algorithm. These results have been obtained on version `c` of the
 # [BHSA dataset](https://etcbc.github.io/bhsa).
 #    1. [mixed](mixedc.html)
@@ -95,9 +95,9 @@
 #    verse by verse.
 
 # # Overview of the method
-#
+# 
 # ## Highlevel description
-#
+# 
 # 1. **BHSA transliteration**
 #    Our starting point is the BHSA full transliteration of the Hebrew Masoretic text.
 #    This transliteration is in 1-1 correspondence with the Masoretic text, including all vowels and accents.
@@ -121,102 +121,102 @@
 #    lead to a gadol interpretation of the same qamets.
 #    In this case we count the unique cases in favor of gadol versus qatan, and let the majority decide for all
 #    occurrences. In cases where we know that the majority votes wrong, we have intervened.
-#
+# 
 # ### Qamets work hypothesis
 # Note, that in the *non-verb qamets puzzles* we have tacitly made the assumption that qamets qatan and gadol are not phonological variants of each other.
 # In other words, it never occurs that a qamets gadol becomes shortened into a qamets qatan.
 # From the grammar rules it follows that short versions of the qamets can only be
-#
+# 
 # * patah
 # * schwa
 # * composite schwa with patah
-#
+# 
 # and never
-#
+# 
 # * qamets qatan
 # * composite schwa with qamets
-#
+# 
 # Whether this hypothesis is right, is not my competence.
 # We just use it as a working hypothesis.
-#
+# 
 # ## Lexical information
-#
+# 
 # This method is not a pure method, in the sense that it works only with the information given in the source string.
 # We *cheat*, i.e. we use morphological information from the BHSA database to
 # steer us into the right direction. To this end, the input of the `phono()` is always a
 # Text-Fabric node, from which we can get all information we need.
-#
+# 
 # More precisely, the input is a sequence of nodes.
 # This sequence is meant to correspond to a sequence of slots belonging to words that are written adjacently
 # (no space between, no maqef between).
 # From these nodes we can look up:
-#
+# 
 # * the BHSA transliteration
 # * the qere (if there is a discrepancy between ketiv and qere)
 # * additional lexical information (taken from the last node)
-#
+# 
 # ## Combined words
-#
+# 
 # You can use `phono()` to transliterate multiple words at the same time, but you can also do individual words,
 # even if in Hebrew they are written together.
 # However, it is better to feed combined words to `phono()` in one go, because the prefix word may influence the transliteration of the postfix word. Think of the article followed by word starting with a BGDKPT letter.
 # The dagesh in the BGDKPT is interpreted as a lene, if the word stands on its own, but as a forte if it is combined.
-#
+# 
 # However, it not not advised to feed longer strings to `phono()`, because when phono retrieves lexical information, it uses the information of the last node that matches a word in the input string.
-#
+# 
 # ## Accents
-#
+# 
 # We determine "primary" and "secondary" stress in our transliteration, but this must not be taken in a phonetic sense.
 # Every syllable that carries an accent pointing will get a primary stress mark.
 # However, a few specific accent pointings are not deemed to produce an accent, and an other group of accents
 # is deemed to produce only a secondary accent.
 # The last syllable of a word also gets a secondary accent by default.
 # We have not yet tried to be more precise in this, so *segolates* do not get the treatment they deserve.
-#
+# 
 # The main rationale for accents is that they prevent a qamets to be read as qatan.
-#
+# 
 # ## Individual symbols
-#
+# 
 # We have made a careful selection of UNICODE symbols to represent Hebrew sounds.
 # Sometimes we follow the phonetic usage of the symbols, sometimes we follow wide spread custom.
 # The actual mapping can be plugged in quite easily,
 # and the intermediate stages in the transformation do not use these symbols,
 # so the algorithm can be easily adapted to other choices.
-#
+# 
 # ### Consonants
-#
+# 
 # Provided it is not part of a long vowel, we write `י` as `y`,
 # whilst `j` would be more in line with the phonetic alphabet.
-#
+# 
 # Likewise, we write `ו` as w, if it is not part of a long vowel.
 # If a word ends in `יו` the `ו` is not a mater lectionis, and the `י` gets elided.
 # We represent this phonetically as `ʸw`.
-#
+# 
 # With regards to the `BGDKPT` letters,
 # it would have been attractive to use the letters `b g d k p t` without
 # diacritic for the plosive variants, and with a suitable diacritic for the fricative variants.
 # Alas, the UNICODE table does not offer such a suitable diacritic that is available for all these particular 6 letters.
-#
+# 
 # So, we use `b g d k p t` for the plosives, but for the fricatives we use `v ḡ ḏ ḵ f ṯ`.
-#
+# 
 # With regards to the *emphatic* consonants ט and ח and צ we
 # represent them with a dot below: `ṭ ḥ ṣ`.
 # ק is just `q`.
-#
-#
+# 
+# 
 # ע and א translate to `ʕ` and `ʔ`.
-#
+# 
 # שׁ and שׂ translate to `š` and `ś`.
 # ס is just `s`.
-#
+# 
 # When א and ה are mater lectionis, they are left out. A ה with mappiq becomes just `h`,
 # like every ה which is not a mater lectionis.
-#
+# 
 # We do not mark the deviant final forms of the consonants ך and ם and ן and ף and ץ, assuming that
 # this is just a scriptural peculiarity, with no effect on the actual sounds.
-#
+# 
 # The remaining consonants go as follows:
-#
+# 
 # <table>
 # <tr><td>ל</td><td>l</td></tr>
 # <tr><td>מ</td><td>m</td></tr>
@@ -224,64 +224,66 @@
 # <tr><td>ר</td><td>r</td></tr>
 # <tr><td>ז</td><td>z</td></tr>
 # </table>
-#
+# 
 # ### Vowels
-#
+# 
 # The short vowels (patah, segol, hireq, qamets qatan, qibbuts) are just `a e i o u`.
-#
+# 
 # However, the *furtive* patah is a `ₐ` in front of its consonant.
-#
+# 
 # The long vowels without yod or waw (qamets gadol, tsere, holam) have a bar above `ā ē ō`.
-#
+# 
 # The complex vowels (tsere or hireq plus yod, holam plus waw, waw with dagesh) have a circumflex `ê î ô û`.
-#
+# 
 # A segol followed by yod becomes `eʸ`
-#
+# 
 # The composite schwas (patah, segol, qamets) are written as superscripts `ᵃ ᵉ ᵒ`.
-#
+# 
 # The simple schwa is left out if silent, and otherwise it becomes `ᵊ`.
-#
+# 
 # ### Accent
-#
+# 
 # The primary and secondary stress are marked as `ˈ ˌ` and are placed *in front of the vowel they occur with*.
-#
+# 
 # ### Punctuation
-#
+# 
 # The sof-pasuq ׃ becomes `.`.
 # If it is followed by ס (setumah) or ף (petuhah) or  ̇׆ (nun-hafuka), these extra symbols are omitted.
-#
+# 
 # The maqef ־ (between words) becomes `-`.
-#
+# 
 # If words are juxtaposed without space in the Hebrew, they are also juxtaposed without space in the phonetic
 # transliteration.
-#
+# 
 # ### Tetragrammaton
-#
+# 
 # The tetragrammaton is transliterated with the vowels it is encountered with, but the whole is put between
 # square brackets `[ ]`.
-#
+# 
 # ### Ketiv-qere
-#
+# 
 # We base the phonetics on the (vocalized) qere, if a qere is present.
 # The ketiv is then ignored. We precede each such word by a `*` to indicate that the qere
 # is deviant from the ketiv. Using the data view in SHEBANQ it is possible to see what the ketiv is.
-#
+# 
 # ## Cleaning up
-#
+# 
 # We leave the accents and the schwas in the end product of the `phono()` function,
 # despite the fact that the accents, as they appear, do not have consistent phonetic significance.
 # And it can be argued that every schwa is silent.
 # If you do not care for schwas and accents, it is easy to remove them.
 # Also, if you find the results in separating the qamets into qatan and gadol unsatisfying or irrelevant, you can
 # just replace them both by a single symbol, such as `å`.
-#
+# 
 # ## Testing
-#
+# 
 # Quite a bit of code is dedicated to count special cases, to test, and to produce neat tables with interesting forms.
 # It is also possible to call the `phono()` function in debug mode, which will write to a text file all stages in the
 # transliteration from BHSA orginal into the phonetic result.
 
 # # Load the modules
+
+# In[1]:
 
 
 import sys
@@ -297,6 +299,8 @@ from tf.writing.transcription import Transcription
 # See [operation](https://github.com/ETCBC/pipeline/blob/master/README.md#operation)
 # for how to run this script in the pipeline.
 
+# In[ ]:
+
 
 if "SCRIPT" not in locals():
     SCRIPT = False
@@ -306,6 +310,9 @@ if "SCRIPT" not in locals():
     VERSION = "2021"
 
 
+# In[2]:
+
+
 def stop(good=False):
     if SCRIPT:
         sys.exit(0 if good else 1)
@@ -313,31 +320,47 @@ def stop(good=False):
 
 # This notebook can run a lot of tests and create a lot of examples.
 # However, when run in the pipeline, we only want to create the two `phono` features.
-#
+# 
 # So, further on, there will be quite a bit of code under the condition `not SCRIPT`.
 
 # # Setting up the context: source file and target directories
-#
+# 
 # The conversion is executed in an environment of directories, so that sources, temp files and
 # results are in convenient places and do not have to be shifted around.
+
+# In[ ]:
 
 
 repoBase = os.path.expanduser("~/github/etcbc")
 coreRepo = "{}/{}".format(repoBase, CORE_NAME)
 thisRepo = "{}/{}".format(repoBase, NAME)
 
+
+# In[ ]:
+
+
 coreTf = "{}/tf/{}".format(coreRepo, VERSION)
+
+
+# In[ ]:
+
 
 thisTemp = "{}/_temp/{}".format(thisRepo, VERSION)
 thisTempTf = "{}/tf".format(thisTemp)
+
+
+# In[3]:
+
 
 thisTf = "{}/tf/{}".format(thisRepo, VERSION)
 
 
 # # Test
-#
+# 
 # Check whether this conversion is needed in the first place.
 # Only when run as a script.
+
+# In[4]:
 
 
 if SCRIPT:
@@ -352,10 +375,20 @@ if SCRIPT:
 
 # # Load the TF data
 
+# In[5]:
+
 
 utils.caption(4, "Load the existing TF dataset")
 TF = Fabric(locations=coreTf, modules=[""])
 
+
+# In[ ]:
+
+
+
+
+
+# In[6]:
 
 
 api = TF.load(
@@ -374,11 +407,13 @@ api.makeAvailableIn(globals())
 # # The source string
 
 # Here is what we use as our starting point: the BHSA transliteration, with one or two tweaks.
-#
+# 
 # The BHSA transliteration encodes also what comes after each word until the next word.
 # Sometimes we want that extra bit, and sometimes not, and sometimes part of it.
 
 # ## Patterns
+
+# In[ ]:
 
 
 # punctuation
@@ -394,6 +429,10 @@ punctuation = re.compile(
 """,
     re.X,
 )
+
+
+# In[ ]:
+
 
 split_punctuation = re.compile(
     r"""
@@ -411,6 +450,10 @@ split_punctuation = re.compile(
     re.X,
 )
 
+
+# In[ ]:
+
+
 start_punct = re.compile(
     r"""
       (?: \A[ &-]\s*)       # space, maqef or nospace
@@ -425,6 +468,10 @@ start_punct = re.compile(
     re.X,
 )
 
+
+# In[ ]:
+
+
 noorigspace = re.compile(
     r"""
       (?: [&-]\Z)           # space, maqef or nospace
@@ -438,6 +485,7 @@ noorigspace = re.compile(
     re.X,
 )
 
+
 # setumah and petuhah
 # Usually, setumah and petuhah occur after the end of verse sign.
 # In that case we can strip them.
@@ -448,8 +496,14 @@ noorigspace = re.compile(
 # So: set_pet to be used before phono(), in get_orig, but only if get_orig is
 # used for phono().
 
+# In[ ]:
+
+
 set_pet_pattern = re.compile(r"((?:0[05])?)(_[SNP])+\Z")
 tetra_lex = "JHWH/"
+
+
+# In[7]:
 
 
 def set_pet_pattern_repl(match):
@@ -459,6 +513,8 @@ def set_pet_pattern_repl(match):
 
 
 # ## Actions
+
+# In[ ]:
 
 
 def get_orig(w, punct=True, set_pet=False, tetra=True, give_ketiv=False):
@@ -486,7 +542,13 @@ def get_orig(w, punct=True, set_pet=False, tetra=True, give_ketiv=False):
 # it turns out that too much is happening with accents, so I will "normalize" the accents for the
 # sake of looking up
 
+# In[ ]:
+
+
 digit = re.compile("[0-9]+")
+
+
+# In[ ]:
 
 
 def find_w(passage, orig, debug=False):
@@ -529,6 +591,9 @@ def find_w(passage, orig, debug=False):
     return results
 
 
+# In[8]:
+
+
 # partition a list of nodes into chunks
 # whenever a node has an orig string that not ends with an - start a new chunk
 def partition_w(wnodes):
@@ -548,16 +613,18 @@ def partition_w(wnodes):
 
 
 # # The phonological symbols
-#
+# 
 # Here is the list of symbols that constitutes the mapping from BHSA transcription codes to a phonetic transcription.
 # It is a series of triplets (*bhsa symbol*, *name*, *phonetic symbol*).
-#
+# 
 # If changes are needed to the appearance of the phonetic transcriptions (not to its *logic*), here is the place to tweak.
-#
+# 
 # Note that the order is important.
 # In the final stage of the transformation process, these substitutions will be applied in the order they appear here.
-#
+# 
 # This is especially important for, but not only for, the BGDKPT letters.
+
+# In[ ]:
 
 
 specials = (
@@ -625,6 +692,10 @@ specials = (
     ("*", "masora", "*"),
 )
 
+
+# In[9]:
+
+
 specials2 = (
     ("$", "sof pasuq", "."),
     ("|", "paseq", " "),
@@ -633,21 +704,27 @@ specials2 = (
 
 
 # ## Assembling the symbols in dictionaries
-#
+# 
 # We compile the table of symbols in handy dictionaries for ease of processing later.
-#
+# 
 # We need to quickly detect the dagesh lenes later on, so we store them in a dictionary.
-#
+# 
 # Our treatment of accents is still primitive.
-#
+# 
 # We ignore some accents (``irrelevant accents`` below) and we consider some accents as indicators of a mere
 # *secondary* accent (``secundary accents`` below).
-#
+# 
 # The ``sound_dict`` is the resulting (ordered) mapping of all source characters to "phonetic" characters.
+
+# In[ ]:
 
 
 dagesh_lenes = {"b.", "g.", "d.", "k.", "p.", "t."}
 dagesh_lene_dict = dict()
+
+
+# In[ ]:
+
 
 irrelevant_accents = (
     ("01", "segol"),  # occurs always with another accent
@@ -667,9 +744,17 @@ punctuation_accents = (
     ("05", "paseq"),
 )
 
+
+# In[ ]:
+
+
 known_accents = {
     x[0] for x in irrelevant_accents + secundary_accents + punctuation_accents
 }
+
+
+# In[ ]:
+
 
 primary_accents = {
     "{:>02}".format(i) for i in range(100) if "{:>02}".format(i) not in known_accents
@@ -677,60 +762,68 @@ primary_accents = {
 sound_dict = collections.OrderedDict()
 sound_dict2 = collections.OrderedDict()
 
+
+# In[ ]:
+
+
 for (sym, let, glyph) in specials:
     if sym in dagesh_lenes:
         dagesh_lene_dict[sym[0]] = glyph
     else:
         sound_dict[sym] = glyph
 
+
+# In[10]:
+
+
 for (sym, let, glyph) in specials2:
     sound_dict2[sym] = glyph
 
 
 # # Patterns
-#
+# 
 # The ``phono()`` function that we will define (far) below, performs an ordered sequence of transformations.
 # Most of these are defined as [regular expressions](http://www.regular-expressions.info),
 # and some parts of those expressions occur over and over again, e.g. subpatterns for *vowel* and *consonant*.
-#
+# 
 # Here we define the shortcuts that we are going to use in the regular expressions.
-#
+# 
 # ## Details of the matching process
-#
+# 
 # Normally, when a pattern matches a string, the string is consumed: the parts of the pattern that match
 # consume corresponding stretches of the string.
 # However, in many cases a pattern specifies specific contexts in which a match should be found.
 # In those cases we do not want that the context parts of the pattern are responsible for string
 # consumption, because in those parts there could be another relevant match.
-#
+# 
 # In regular expression there is a solution for that: look-ahead and look-behind assertions and we use them frequently.
-#
+# 
 # ``(?<=`` *before_pattern* ``)`` *pattern* ``(?=`` *behind-pattern* ``)``
-#
+# 
 # A match of this pattern in a string is a portion of a string that matches *pattern*, provided that
 # portion is preceded by *before_pattern* and followed by *behind* pattern.
-#
+# 
 # If there is a match, and new matches must be searched for, the search will start right after *pattern*.
-#
+# 
 # Instead of the above *positive* look-ahead and look-behind assertions, there are also *negative* variants:
-#
+# 
 # ``(?<!`` *before_pattern* ``)`` *pattern* ``(?!`` *behind-pattern* ``)``
-#
+# 
 # in those cases the match is good, if the *before_pattern* does not match the preceding material, and analogously
 # the *behind_pattern*.
-#
+# 
 # In Python there is a restriction on look-behind patterns:
 # they must be patterns that only have matches of a predictable, fixed length.
 # That will make some of our patterns slightly more complicated.
 # For example, vowels can be simple or complex, and hence have variable length.
 # If we want to specify a consonant, provided it is preceded by a vowel, we have to be careful.
-#
+# 
 # In regular expressions there are *greedy*, *non-greedy* and *possessive* quantifiers.
 # Greedy ones try to match as many times as possible at first;
 # non-greedy ones try to match as few times as possible at first.
 # Possessive quantifiers are like greedy ones, but greedy ones will give back occurrences if that helps
 # to achieve a match. Possessive ones do not do that.
-#
+# 
 # <table>
 # <tr><th>kind</th><th>greedy</th><th>non-greedy</th><th>possessive</th></tr>
 #   <tr><th>0 or more</th><td><code>*</code></td><td><code>*?</code></td><td><code>*+</code></td></tr>
@@ -741,25 +834,24 @@ for (sym, let, glyph) in specials2:
 #     <td><code>{</code>*n*<code>,</code> *m*<code>}+</code></td>
 #  </tr>
 # </table>
-#
+# 
 # For example, the pattern ``[ab]*b`` matches substrings of ``a``s and ``b``s that end in a ``b``.
 # In order to match the string ``aaaaab``, the ``[a|b]*`` part starts with greedily consuming the whole string,
 # but after discovering that the ``b`` part in the pattern should also match something, the ``[a|b]*`` part
 # reluctantly gives back one occurrence. That will do the trick.
-#
+# 
 # However, ``[ab]*+b`` will not match ``aaaaab``, because the possessive quantifier gives nothing back.
-#
+# 
 # Possessive quantifiers a desirable in combination with negative look-behind assertions.
-#
+# 
 # For example, take ``[ab]*+(?!c)$``. This will match substrings of ``a``s and ``b``s that are not followed by ``c``.
 # So it matches ``ababab`` but not ``abababc``.
 # However, the non-possessive variant, ``[ab]*(?!c)`` matches both. So how does it match ``abababc``?
 # First, the ``[ab]*`` part matches all ``a``s and ``b``s. Then the look-behind assertion that ``c`` does not follow,
 # is violated. So ``[ab]*`` backtracks one occurrence, a ``b``. At that point the look-behind assertion finds a ``b``
 # which is not ``c``, and the match succeeds.
-#
+# 
 # Python lacks *possessive* quantifiers in regular expressions, so again, this makes some expressions below more complicated than they were otherwise.
-
 
 # We want to test for vowels in look-behind conditions.
 # Python insists that look-behind conditions match patterns with fixed length.
@@ -768,14 +860,25 @@ for (sym, let, glyph) in specials2:
 # vowel1 is for before, vowel2 is for after, both are usable in look-behind conditions
 # vowel matches purely vowels of variable length, and is not usable in look-behind conditions
 
+# In[ ]:
+
+
 vowel1 = r"(?:(?::[ea@])|(?:w\.)|(?:[i;]j)|(?:ow)|(?:.[%@\^;aeiIou`]))"
 vowel2 = r"(?:(?::[ea@])|(?:w\.)|(?:[i;]j)|(?:ow)|(?:[%@\^;aeiIou`].))"
 vowel = r"(?:(?::[ea@])|(?:w\.)|(?:[i;]j)|(?:ow)|(?:[%@\^;aeiIou`]))"
+
+
+# In[ ]:
+
 
 # lvowel are long vowels only (including compositions)
 # svowel are short vowels only, including composite schwas
 lvowel1 = r"(?:(?:w\.)|(?:[i;]j)|(?:ow)|(?:.[@;o]))"
 svowel = r"(?:(?::[ea@])|(?:[%@\^;aeiIou`]))"
+
+
+# In[ ]:
+
 
 gadol = sound_dict["@"]
 qatan = sound_dict["^"]
@@ -783,9 +886,17 @@ a_like = {":a", "a"}
 o_like = {":@", "o", "ow", "u", "w."}
 e_like = {":", ":e", ";", ";j", "e", "i", "ij"}
 
+
+# In[ ]:
+
+
 # complex i/w vowel: the composite vowels with waw and yod, after translation
 complex_i_vowel = "".join(sound_dict[s] for s in {"ij", ";j"})
 complex_w_vowel = "".join(sound_dict[s] for s in {"ow"})
+
+
+# In[ ]:
+
 
 # consonants
 ncons = "[^>bgdhwzxvjklmns<pyqrfct _&$-]"  # not a consonant
@@ -795,37 +906,49 @@ bgdkpt = "[bgdkpt]"  # begadkefat consonant
 nbgdkpt = "[wzxvjlmns<yqrfc]"  # non-begadkefat consonant
 prep = "[bkl]"  # proclitic preposition
 
+
 # accents
+
+# In[11]:
+
 
 acc = "[ˈˌ]"  # primary and secundary accent
 
 
 # # Regular expressions
-#
+# 
 # Here are the patterns, but also the replacement functions we are going to carry out when the patterns match.
 # How exactly the patterns and replacement functions hang together, is a matter for the `phono` function itself.
 
 # ## Rafe and furtive patah
-#
+# 
 # ### Rafe
-#
+# 
 # The rafe indicates a fricative pronunciation. It cancels a dagesh lene on a BGDKPT letter.
 # If it occurs in other situations, we ignore it.
-#
+# 
 # ### Furtive patah
-#
+# 
 # We have to reverse any CV pattern at word ends where the V is a patah, and the C is a guttural (i.e. cheth, ayin or he-mappiq).
-#
+# 
 # If there is an accent on the guttural, we ignore it in these cases, because the guttural does not initiate a syllable.
 
-
 # rafe
+
+# In[ ]:
+
 
 rafe = re.compile(r"({b})\.,".format(b=bgdkpt))
 
 
+# In[ ]:
+
+
 def rafe_repl(match):
     return match.group(1)
+
+
+# In[ ]:
 
 
 # furtive patah
@@ -833,16 +956,21 @@ def rafe_repl(match):
 furtive_patah = re.compile(r"([x<]|(?:h\.))(?:[/!]?)a(?=\Z|[ &-])")
 
 
+# In[12]:
+
+
 def furtive_patah_repl(match):
     return "`" + match.group(1)
 
 
 # ## Accents
-#
+# 
 # ### Patterns
 
-
 # explicit accents
+
+# In[ ]:
+
 
 # lets assume that any cantillation mark or accent indicates that the vowel is stressed
 # except for some types of mark (qadma, pashta)
@@ -856,13 +984,22 @@ punctuation_accent = re.compile(
 condense_accents = re.compile("({v})([!/]+)".format(v=vowel))
 
 
+# In[ ]:
+
+
 def sep_accent_repl(match):
     return "~" + match.group(1)
+
+
+# In[ ]:
 
 
 def condense_accents_repl(match):
     accent = "!" if "!" in match.group(2) else "/"
     return accent + match.group(1)
+
+
+# In[ ]:
 
 
 # implicit accents
@@ -871,12 +1008,22 @@ default_accent1 = re.compile(r"({v}`?{c}?\.?(?:\Z|[ ]))".format(v=svowel, c=cons
 default_accent2 = re.compile(r"({v}(?:\Z|[ ]))".format(v=lvowel1))
 strip_accents = re.compile(r"[0-9*]")
 
+
+# In[ ]:
+
+
 # wrong last accents
 last_accent = re.compile(r"[/!]+(?=[ ]|\Z)")
 
 
+# In[ ]:
+
+
 def default_accent_repl(match):
     return "/" + match.group(1)
+
+
+# In[ ]:
 
 
 def punctuation_accent_repl(match):
@@ -890,10 +1037,20 @@ def punctuation_accent_repl(match):
 # specials2 specify how punctuation (sof pasuq, paseq, interword setumah-petuhah are
 # translated).
 
+# In[ ]:
+
+
 phono_sep = re.compile("(.*?)([ {}]*)".format("".join(x[2] for x in specials2)))
 multiple_space = re.compile("  +")
 
+
+# In[ ]:
+
+
 verse_end_phono = re.compile(r"(\. *)\Z")
+
+
+# In[13]:
 
 
 def verse_end_phono_repl(match):
@@ -902,8 +1059,13 @@ def verse_end_phono_repl(match):
 
 # ### Actions
 
+# In[ ]:
+
 
 stats = collections.Counter()
+
+
+# In[14]:
 
 
 def doaccents(orig, debug=False, count=False):
@@ -981,45 +1143,77 @@ def doaccents(orig, debug=False, count=False):
 
 
 # ## Qamets gadol and qatan
-#
+# 
 # ### Patterns
-
 
 # qamets qatan
 # NB: all patterns stipulate that the qamets (@) in question is unaccented
+
+# In[15]:
+
 
 # near end of word:
 qamets_qatan1 = re.compile(
     r"(?<={c})(\.?)@(?={c}(?:\.?[/!]?(?:[ &-]|\Z)))".format(c=consx)
 )
 
+
+# In[ ]:
+
+
 # before dagesh forte:
 qamets_qatan2 = re.compile(r"(?<={c})(\.?)@(?={c}\.)".format(c=cons))
+
+
+# In[ ]:
+
 
 # if the following consonant is BGDKFT and does not have dagesh, the @ is in an open syllable:
 qamets_qatan3 = re.compile(
     r"(?<={c})(\.?)@(?={c}:(?:{nb}|(?:{b}\.)))".format(c=cons, b=bgdkpt, nb=nbgdkpt)
 )
 
+
+# In[ ]:
+
+
 # assimilation of qamets with following composite schwa of type (chatef qamets),
 #     but if the qamets is under a preposition BCL, not if it is under the article H:
 qamets_qatan4a = re.compile(r"(?<={p})(\.?[!/]?)@(?=-{c}:@)".format(p=prep, c=cons))
 
+
+# In[ ]:
+
+
 #     or word-internal
 qamets_qatan4b = re.compile(r"(?<={c})(\.?[!/]?)@(?={c}:@)".format(c=cons))
 
+
+# In[ ]:
+
+
 # before an other qamets qatan, provided the syllable is unaccented
 qamets_qatan5 = re.compile(r"(?<={c})(\.?)@(?={c}\.?[/!]?\^)".format(c=cons))
+
 
 # in a pronominal suffix, qamets never becomes qatan.
 # This pattern will be applied only on words that do have a non-empty pronominal suffix
 # The pattern will spot the qamets qatan in front of the last consonant, if there is such a qatan
 
+# In[ ]:
+
+
 qamets_qatan_prs = re.compile(r"\^(?=[0-9]*{c}\.?[/!]?(?:[ &-]|\Z))".format(c=cons))
+
+
+# In[ ]:
 
 
 def qamets_qatan_repl(match):
     return match.group(1) + "^"
+
+
+# In[ ]:
 
 
 # there are exceptions to the heuristic of interpreting qamets by voting between occurrences
@@ -1031,9 +1225,17 @@ JRB<M/ => 1A
 JHWNTN/ => 2A
 """
 
+
+# In[ ]:
+
+
 xxx = """
 <YBT/ => 2A
 """
+
+
+# In[ ]:
+
 
 # there are unaccented conjugated verb forms that must not be subjected to qamets-qatan transformation
 qamets_qatan_verb_x = {
@@ -1051,7 +1253,14 @@ qqv_experimental = {
     "verb qal impf 3pm",
 }
 
+
+# In[ ]:
+
+
 qamets_qatan_verb_x |= qqv_experimental
+
+
+# In[ ]:
 
 
 def qamets_qatan_verb_x_repl(match):
@@ -1060,10 +1269,11 @@ def qamets_qatan_verb_x_repl(match):
 
 # for the use of applying individual corrections:
 
-
 # ### Actions
 # Here is the function that carries out rule based qamets qatan detection, without going into
 # verb paradigms and exceptions. It is the first go at it.
+
+# In[16]:
 
 
 def doplainqamets(word, accentless=False, debug=False, count=False):
@@ -1116,28 +1326,30 @@ def doplainqamets(word, accentless=False, debug=False, count=False):
 
 
 # ## Schwa and dagesh
-#
+# 
 # ### Schwa
-#
+# 
 # The rules for the schwa that I have found are contradictory.
-#
+# 
 # These rules I have seen (e.g.)
-#
+# 
 # 1. if two consecutive consonants have both a schwa, the second one is mobile;
 # 1. a schwa under a consonant with dagesh forte is mobile
 # 1. a schwa under the last consonant of a word is quiescens
 # 1. a schwa on a consonant that follows a long vowel, is mobile
-#
+# 
 # But there are examples where rules 1 and 3 apply at the same time.
-#
+# 
 # And the qal 3 sg f forms end with a tav with schwa, often preceded by a consonant with also schwa.
 # In this case the tav has a dagesh, which by the rules for dagesh cannot be a lene. So it must be a forte.
 # So this violates rule 2.
-#
+# 
 # We will cut this matter short, and make any final schwa quiescens.
-#
+# 
 # As to rule 4, there are cases where the schwa in question is also followed by a final consonant with schwa.
 # In those cases it seems that the schwa in question is silent.
+
+# In[ ]:
 
 
 # mobile schwa
@@ -1166,19 +1378,37 @@ mobile_schwa1 = re.compile(
     re.X,
 )
 
+
+# In[ ]:
+
+
 mobile_schwa2 = re.compile(
     r":(?={b}(?:[^.]|[ &-]|\Z))".format(b=bgdkpt)
 )  # before BGDKPT letter without dagesh
 
+
+# In[ ]:
+
+
 # second last consonant with schwa when last consonsoant also has schwa
 mobile_schwa3 = re.compile(r"[%:](?={c}\.?{a}?[%:](?:[ &]|\Z))".format(a=acc, c=cons))
+
+
+# In[ ]:
+
 
 # all schwas and the end of the word are quiescens, only if the words are not glued together
 mobile_schwa4 = re.compile(r"[%:](?=[ &]|\Z)")
 
 
+# In[ ]:
+
+
 def mobile_schwa1_repl(match):
     return match.group(1) + "%"
+
+
+# In[ ]:
 
 
 # dagesh
@@ -1191,12 +1421,21 @@ dages_forte = re.compile(
 dages_lene = re.compile(r"({b})\.".format(b=bgdkpt))
 
 
+# In[ ]:
+
+
 def dages_forte_lene_repl(match):
     return match.group(1) + (dagesh_lene_dict[match.group(2)] * 2)
 
 
+# In[ ]:
+
+
 def dages_lene_repl(match):
     return dagesh_lene_dict[match.group(1)]
+
+
+# In[17]:
 
 
 def dages_forte_repl(match):
@@ -1205,33 +1444,60 @@ def dages_forte_repl(match):
 
 # ## Mater lectionis and final fixes
 
+# In[18]:
+
 
 # silent aleph
 silent_aleph = re.compile("(?<=[^ &-])>(?!(?:[/!]|{v}))".format(v=vowel))
+
+
+# In[ ]:
+
 
 # final mater lectionis
 # I assume that heh and alef are only matrices lectionis after a LONG vowel
 last_ml = re.compile(r"(?<={v1})[>h]+(?=[ &-]|\Z)".format(v1=lvowel1))
 last_ml_jw = re.compile(r"jw(?=[ &-]|\Z)")
 
+
+# In[ ]:
+
+
 # mappiq heh
 mappiq_heh = re.compile(r"h\.")
+
+
+# In[ ]:
+
 
 fixit_i = re.compile(r"([{v}])\.".format(v=complex_i_vowel))
 fixit_w = re.compile(r"([{v}])\.".format(v=complex_w_vowel))
 fixit = re.compile(r"(.)\.")
+
+
+# In[ ]:
+
 
 split_sep = re.compile(
     "^(.*?)([ .&$\n-]*)$"
 )  # to split the result in the phono part and the interword part
 
 
+# In[ ]:
+
+
 def fixit_repl(match):
     return match.group(1) * 2
 
 
+# In[ ]:
+
+
 def fixit_i_repl(match):
     return match.group(1) + "j"
+
+
+# In[ ]:
 
 
 def fixit_w_repl(match):
@@ -1240,30 +1506,34 @@ def fixit_w_repl(match):
 
 # END OF REGULAR EXPRESSIONS AND REPLACEMENT FUNCTIONS
 
-
 # ## Qamets corrections
-#
+# 
 # For some words we need specific corrections.
 # The rules for qamets qatan are not specific enough.
-#
+# 
 # ### Correction mechanism
-#
+# 
 # We define a function ``apply_corr(wordq, corr)`` that can apply a correction instruction to ``wordq``, which is a word in pre-transliterated form, i.e. a word that has underwent transliteration steps ending with qamets interpretation, including applying special verb cases.
-#
+# 
 # The ``corr`` is a comma-separated list of basic instructions, which have the form
 # *number* *letter*. It will interpret the *number*-th qamets as a gadol of qatan, depending on whether *letter* = ``ā`` or ``o``.
-#
+# 
 # ### Precomputed list of corrections
-#
+# 
 # Later on we compile a dictionary ``qamets_corrections`` of pre-computed corrections.
 # This dictionary is keyed by the pre-transliterated form, and valued by the corresponding correction string. Here we initialize this dictionary.
-#
+# 
 # The ``phono()`` function that carries out the complete transliteration, looks by default in ``qamets_corrections``, but this can be overridden. These corrections will not be carried out for the special verb cases.
+
+# In[ ]:
 
 
 qamets_corrections = {}  # list of translits that must be corrected
 
+
 # apply correction instructions to a word
+
+# In[19]:
 
 
 def apply_corr(wordq, corr):
@@ -1288,11 +1558,17 @@ def apply_corr(wordq, corr):
 
 
 # ### Feature value normalization
-#
+# 
 # We need concise, normalized values for the lexical features.
+
+# In[ ]:
 
 
 undefs = {"NA", "unknown", "n/a", "absent"}
+
+
+# In[20]:
+
 
 png = dict(
     NA="-",
@@ -1313,11 +1589,16 @@ png["n/a"] = "-"
 
 
 # ### Lexical info
-#
+# 
 # We need a label for lexical information such as part of speech, person, number, gender.
+
+# In[ ]:
 
 
 declensed = {"subs", "nmpr", "adjv", "prps", "prde", "prin"}
+
+
+# In[ ]:
 
 
 def get_lex_info(w):
@@ -1341,11 +1622,17 @@ def get_lex_info(w):
     return lex_info
 
 
+# In[ ]:
+
+
 def get_decl(lex_info):
     if lex_info is None:
         lex_info = ""
     parts = lex_info.split(",")
     return lex_info if len(parts) == 1 else parts[0]
+
+
+# In[21]:
 
 
 def get_prs(lex_info):
@@ -1356,11 +1643,13 @@ def get_prs(lex_info):
 
 
 # # The phono function
-#
+# 
 # The definition of the function that generates the phonological transliteration.
 # It is a function with a big definition, so we have broken it in parts.
-#
+# 
 # ## Phono parts
+
+# In[22]:
 
 
 interesting_stats = [
@@ -1371,6 +1660,11 @@ interesting_stats = [
 ]
 
 
+# In[ ]:
+
+
+
+
 
 # if suppress_in_verb, phono will suppress qatan interpretation in certain verb paradigmatic forms
 # if suppress_in_prs, phono will suppress qatan interpreation in pronominal suffixes
@@ -1378,6 +1672,8 @@ interesting_stats = [
 # if correct is 0, phono will not apply individual corrections
 # if correct is -1, phono will stop just before applying the qamets qatan corrections and return
 # the intermediate result
+
+# In[23]:
 
 
 def phono_qamets(
@@ -1516,6 +1812,14 @@ def phono_qamets(
     return (result, False)
 
 
+# In[ ]:
+
+
+
+
+
+# In[24]:
+
 
 def phono_patterns(result, debug, count, dout):
 
@@ -1611,6 +1915,14 @@ def phono_patterns(result, debug, count, dout):
     return result
 
 
+# In[ ]:
+
+
+
+
+
+# In[25]:
+
 
 def phono_symbols(ws, result, debug, count, dout):
 
@@ -1680,6 +1992,8 @@ def phono_symbols(ws, result, debug, count, dout):
 # ## Phono whole
 # Here the rule fabrics are woven together, exceptions invoked.
 
+# In[26]:
+
 
 def phono(
     ws,
@@ -1745,18 +2059,20 @@ def phono(
 
 
 # # Skeleton analysis
-#
+# 
 # We have to do more work for the qamets. Sometimes a word form on its own is not enough to determine whether a qamets is gadol or qatan. In those cases, we analyze all occurrences of the same lexeme, and for each syllable position we measure whether an A-like vowel of an O-like vowel tends to occur in that syllable.
-#
+# 
 # In order to do that, we need to compute a *vowel skeleton* for each word.
 
 # ## Stripping paradigmatic material
-#
+# 
 # A word may have extra syllables, due to inflections, such as plurals, feminine forms, or suffixes. Let us call this the *paradigmatic material* of a word.
-#
+# 
 # Now, we strip from the initial vowel skeleton a number of trailing vowels that corresponds
 # to the number of consonants found in the paradigmatic material.
 # This is rather crude, but it will do.
+
+# In[ ]:
 
 
 # we need the number of letters in a defined value of a morpho feature
@@ -1768,6 +2084,9 @@ def len_suffix(v):
     return len(v.replace("=", "").replace("W", "").replace("J", ""))
 
 
+# In[ ]:
+
+
 # we need a function that return 1 for plural/dual subs/adj and for fem adj
 def len_ending(sp, n, g):
     if sp == "subs":
@@ -1775,6 +2094,9 @@ def len_ending(sp, n, g):
     if sp == "adjv":
         return 1 if n in {"pl", "du"} or g in "f" else 0
     return 0
+
+
+# In[27]:
 
 
 # return the number of consonants in the suffixes
@@ -1788,12 +2110,18 @@ def len_morpho(w):
 
 
 # ## Skeleton patterns
-#
+# 
 # Next, we reduce the vowel skeleton to a skeleton pattern. We are not interested in all vowels, only in whether the vowel is a qamets (gadol or qatan), A-like, O-like, or other (which we dub E-like).
+
+# In[ ]:
 
 
 # the qamets gadol/qatan skeleton
 qamets_qatan_skel = re.compile("([^@^])")
+
+
+# In[ ]:
+
 
 # the vowel skeleton where the qamets gadol/qatan are preserved as @ and ^
 # another o-like vowel becomes O (holam, qamets chatuf) (no waws nor yods)
@@ -1801,8 +2129,14 @@ qamets_qatan_skel = re.compile("([^@^])")
 silent_alef_start = re.compile(r"([ &-]|\A)>([!/]?(?:[^!/.:;@^aeiou]|\Z))")
 
 
+# In[ ]:
+
+
 def silent_alef_start_repl(match):
     return match.group(1) + "E" + match.group(2)
+
+
+# In[ ]:
 
 
 qamets_qatan_fullskel = re.compile(
@@ -1817,6 +2151,9 @@ qamets_qatan_fullskel = re.compile(
 """,
     re.X,
 )
+
+
+# In[ ]:
 
 
 def qamets_qatan_fullskel_repl(match):
@@ -1834,6 +2171,9 @@ def qamets_qatan_fullskel_repl(match):
     if found in e_like:
         return "E"
     return ""
+
+
+# In[28]:
 
 
 def get_full_skel(w, debug=False):
@@ -1859,21 +2199,27 @@ def get_full_skel(w, debug=False):
 
 
 # # Qamets gadol qatan: sophisticated
-#
+# 
 # A lot of work is needed to get the qamets gadol-qatan right.
 # This involves looking at accents, verb paradigms and special cases among the non-verbs.
 
 # ## Qamets gadol qatan: non-verbs
-#
+# 
 # Sometimes a qamets is gadol or qatan for lexical reasons, i.e. it can not be derived by rules based on the word occurrence itself, but other occurrences have to be invoked.
-#
+# 
 # ### All candidates
+
+# In[ ]:
 
 
 # find lexemes which have an occurrence with a qamets (except verbs)
 utils.caption(0, "\tLooking for non-verb qamets")
 qq_words = set()
 qq_lex = collections.defaultdict(lambda: [])
+
+
+# In[29]:
+
 
 for w in F.otype.s("word"):
     ln = F.languageISO.v(w)
@@ -1897,6 +2243,8 @@ utils.caption(
 
 
 # ### Filtering interesting candidates
+
+# In[30]:
 
 
 utils.caption(0, "\tFiltering lexemes with varied occurrences")
@@ -1936,6 +2284,8 @@ utils.caption(
 
 # ### Guess the qamets
 
+# In[ ]:
+
 
 qamets_qatan_xc = dict(
     (x[0], x[1]) for x in (y.split(" => ") for y in qamets_qatan_x.strip().split("\n"))
@@ -1947,6 +2297,9 @@ for (lex, corrstr) in qamets_qatan_xc.items():
         (pos, ins) = corr
         pos = int(pos) - 1
         qamets_qatan_xcompiled[lex][pos] = ins
+
+
+# In[ ]:
 
 
 def compile_occs(lex, occs):
@@ -1990,6 +2343,9 @@ def compile_occs(lex, occs):
     return occs_compiled
 
 
+# In[ ]:
+
+
 def guess_qq(occ, occs_compiled, debug=False):
     (skel, fullskel, w) = occ
     guess = ""
@@ -1998,6 +2354,9 @@ def guess_qq(occ, occs_compiled, debug=False):
     if debug:
         TF.info("{}".format(w), tm=False)
     return guess
+
+
+# In[31]:
 
 
 def get_corr(fullskel, guess, debug=False):
@@ -2017,6 +2376,8 @@ def get_corr(fullskel, guess, debug=False):
 
 
 # ### Carrying out the guess work
+
+# In[32]:
 
 
 utils.caption(0, "\tGuessing between gadol and qatan")
@@ -2066,15 +2427,28 @@ utils.caption(0, "\t{} patterns with conflicts".format(nconflicts))
 
 # # Generate phonological data
 
+# In[ ]:
+
 
 def stats_prog():
     return " ".join(str(stats.get(stat, 0)) for stat in interesting_stats)
 
 
+# In[ ]:
+
+
 utils.caption(4, "Generating data in two ways ... ")
+
+
+# In[ ]:
+
 
 phono_file = []
 word_file = []
+
+
+# In[ ]:
+
 
 stats = collections.Counter()
 nv = 0
@@ -2101,6 +2475,10 @@ for v in F.otype.s("verse"):
     if not phono_file[-1].endswith(". "):
         word_file.append((None, "", "+"))
 
+
+# In[33]:
+
+
 utils.caption(0, "\t{:>5} verses done {}".format(nv, stats_prog()))
 for stat in sorted(stats):
     amount = stats[stat]
@@ -2115,11 +2493,13 @@ for stat in sorted(stats):
 
 
 # ## Consistency check
-#
+# 
 # We take the just generated `phono` and `wordph` files.
 # From the `phono` file we strip the passage indicators, and from the `wordph` we strip the node numbers.
-#
+# 
 # They should be consistent.
+
+# In[ ]:
 
 
 utils.caption(0, "{} items in phono".format(len(phono_file)))
@@ -2133,6 +2513,10 @@ for (w, mat, sep) in word_file:
         i += 1
 utils.caption(0, "\t{} lines".format(i))
 
+
+# In[35]:
+
+
 phono_text = "".join(phono_file)
 word_text = "".join(word_test)
 if phono_text != word_text:
@@ -2142,12 +2526,14 @@ else:
 
 
 # # Generating phono module for Text-Fabric
-#
+# 
 # We generate the features `phono` and `phono_trailer`.
 # They are defined for words.
-#
+# 
 # We also generate a config feature `otext@phono`, which will be picked up by Text-Fabric automatically.
 # In it we define the phonetic *format*, so that Text-Fabric has can output text in phonetic representation.
+
+# In[36]:
 
 
 utils.caption(4, "Writing TF phono features")
@@ -2177,16 +2563,20 @@ TF.save(nodeFeatures=nodeFeatures, edgeFeatures=edgeFeatures, metaData=metaData)
 
 
 # # Diffs
-#
+# 
 # Check differences with previous versions.
+
+# In[37]:
 
 
 utils.checkDiffs(thisTempTf, thisTf, only=set(nodeFeatures))
 
 
 # # Deliver
-#
+# 
 # Copy the new TF features from the temporary location where they have been created to their final destination.
+
+# In[38]:
 
 
 utils.deliverDataset(thisTempTf, thisTf)
@@ -2194,21 +2584,43 @@ utils.deliverDataset(thisTempTf, thisTf)
 
 # # Compile TF
 
+# In[ ]:
+
 
 utils.caption(4, "Load and compile the new TF features")
+
+
+# In[39]:
+
 
 TF = Fabric(locations=[coreTf, thisTf], modules=[""])
 api = TF.load(" ".join(nodeFeatures))
 api.makeAvailableIn(globals())
 
 
+# In[ ]:
+
+
+
+
+
+# In[ ]:
+
 
 utils.caption(4, "Basic tests")
+
+
+# In[ ]:
+
 
 utils.caption(4, "First verses in phonetic transcription")
 for v in F.otype.s("verse")[0:10]:
     utils.caption(0, "{} {}:{}".format(*T.sectionFromNode(v)), continuation=True)
     utils.caption(0, T.text(L.d(v, "word"), fmt="text-phono-full"), continuation=True)
+
+
+# In[40]:
+
 
 utils.caption(4, "First verse in all formats")
 for fmt in T.formats:
@@ -2217,10 +2629,12 @@ for fmt in T.formats:
 
 
 # # End of pipeline
-#
+# 
 # If this notebook is run with the purpose of generating data, this is the end then.
-#
+# 
 # After this tests and examples are run.
+
+# In[41]:
 
 
 if SCRIPT:
@@ -2228,16 +2642,18 @@ if SCRIPT:
 
 
 # # Testing
-#
+# 
 # The function below reads a text file with tests.
-#
+# 
 # A test is a tab separated line with as fields:
-#
+# 
 #     passage etcbc-original phono_transcription expected_result bol_reference comments
-#
+# 
 # The testing routine executes all tests, checks the results, produces on-screen output, debug output in file, and pretty output in a HTML file.
 
 # Load the features needed for testing.
+
+# In[48]:
 
 
 api = TF.load(
@@ -2254,16 +2670,18 @@ api.makeAvailableIn(globals())
 
 
 # ## Auxiliary functions
-#
+# 
 # ### Composing tests
-#
+# 
 # Given an occurrence in ETCBC transliteration in a passage, or a node number, we want to easily compile a test out of it.
 # Say we are looking for ``orig``.
-#
+# 
 # The match need not be perfect.
 # We want to find the node w, which carries a transliteration that occurs at the end of ``orig``.
 # If there are multiple, we want the longest.
 # If there are multiple longest ones, we want the first that occurs in the passage.
+
+# In[ ]:
 
 
 def get_hebrew(orig):
@@ -2271,14 +2689,23 @@ def get_hebrew(orig):
     return Transcription.to_hebrew(origm[0] + origm[1]).replace("-", "")
 
 
+# In[ ]:
+
+
 def get_passage(w):
     return T.sectionFromNode(w, lang="la")
+
+
+# In[ ]:
 
 
 def tupleFromStr(passage):
     (book, rest) = passage.split()
     (chapter, verse) = rest.split(":")
     return (book, int(chapter), int(verse))
+
+
+# In[49]:
 
 
 def maketest(ws=None, orig=None, passageStr=None, expected=None, comment=None):
@@ -2302,12 +2729,17 @@ def maketest(ws=None, orig=None, passageStr=None, expected=None, comment=None):
 
 
 # ### Formatting test results
-#
+# 
 # Here are some HTML/CSS definitions for formatting test results.
+
+# In[ ]:
 
 
 def h_esc(txt):
     return txt.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
+
+
+# In[ ]:
 
 
 def test_html_head(title, stats, mystats):
@@ -2390,6 +2822,9 @@ def test_html_head(title, stats, mystats):
     )
 
 
+# In[50]:
+
+
 test_html_tail = """</table>
 </body>
 </html>
@@ -2397,23 +2832,28 @@ test_html_tail = """</table>
 
 
 # ### Run tests
-#
+# 
 # This is the function that runs a sequence of tests.
 # If the second argument is a string, it reads a tab separated file with tests from a file with that name.
 # Otherwise it should be a list of tests, a test being a list or tuple consisting of:
-#
+# 
 #     source, orig, lex_info, expected, comment
-#
+# 
 # where ``source`` is either a string ``passage`` or a number ``w``.
 # If it is a ``w``, it is the node corresponding to the word, and it is used to get the ``passage, orig, lex_info`` which are allowed to be empty.
 # If it is a ``passage``, the node will be looked up on the basis of it plus ``orig``.
 # If the node is found, it will be used to get the ``lex_info``, if not, the given ``lex_info`` will be used.
+
+# In[ ]:
 
 
 def vfname(inpath):
     (indir, infile) = os.path.split(inpath)
     (inbase, inext) = os.path.splitext(infile)
     return os.path.join(indir, inbase + VERSION + inext)
+
+
+# In[51]:
 
 
 def runtests(title, testsource, outfilename, htmlfilename, order=True, screen=False):
@@ -2571,10 +3011,12 @@ def runtests(title, testsource, outfilename, htmlfilename, order=True, screen=Fa
 
 
 # ### Produce showcases
-#
+# 
 # This is a variant on ``runtests()``.
-#
+# 
 # It produces overviews of the cases where the corpus dependent rules have been applied.
+
+# In[52]:
 
 
 def showcases(title, stats, testsource, order=True):
@@ -2685,6 +3127,8 @@ def showcases(title, stats, testsource, order=True):
 
 # ## Test the existing examples
 
+# In[53]:
+
 
 for tname in [
     "mixed",
@@ -2702,6 +3146,8 @@ for tname in [
 
 
 # ### Testing: Special cases
+
+# In[ ]:
 
 
 special_tests = [
@@ -2743,11 +3189,19 @@ special_tests = [
     ),
 ]
 
+
+# In[ ]:
+
+
 compiled_tests = []
 for t in special_tests:
     this_test = maketest(**t)
     if this_test is not None:
         compiled_tests.append(this_test)
+
+
+# In[54]:
+
 
 runtests(
     "special cases",
@@ -2759,14 +3213,20 @@ runtests(
 
 
 # ## Making new tests: Qamets gadol qatan: non-verbs
-#
+# 
 # We have generated a number of corrections of the qamets interpretation in non verbs. We have applied exceptions to the corrections. Here is the list of representative occurrences where corrections and/or exceptions have been applied.
+
+# In[ ]:
 
 
 TF.info("Showing lexemes with varied occurrences")
 qqi_filename = "qamets_qatan_individuals"
 qqi = open("{}.txt".format(qqi_filename), "w")
 nvcases = []
+
+
+# In[55]:
+
 
 noccs = 0
 ncorrs = 0
@@ -2814,19 +3274,25 @@ showcases(
 
 
 # ## Making new tests: Qamets gadol qatan: verbs
-#
+# 
 # Usually, accents take care that potential qatans are read as gadols.
 # But sometimes the accents are missing.
 # We have used a list of paradigm labels where such cases might occur, and there we suppress the gamets-as-qatan interpretation.
 # We look at the verb paradigms to fill in the missing information.
-#
+# 
 # Here we list the cases where this occurs, and show them.
-#
+# 
 # ### Look up the cases
+
+# In[ ]:
 
 
 qq_verb_words = set()
 qq_verb_specials = []
+
+
+# In[56]:
+
 
 TF.info("Finding qamets qatan special verb cases")
 for w in F.otype.s("word"):
@@ -2857,8 +3323,14 @@ TF.info("{} cases".format(len(qq_verb_specials)))
 
 # ### Show the cases
 
+# In[ ]:
+
 
 TF.info("Showing verb cases")
+
+
+# In[ ]:
+
 
 ncorr = 0
 ngood = 0
@@ -2880,6 +3352,10 @@ for (w, orig, word) in qq_verb_specials:
         comment = "qamets: gadol maintained because of verb paradigm"
     vcases.append((corr, wordph_ns, wordph, lex, orig, w, comment))
 
+
+# In[57]:
+
+
 showcases(
     "qamets verb",
     "{} lexemes".format(len(verb_lexemes)),
@@ -2889,16 +3365,22 @@ showcases(
 
 
 # ## Making new tests: Qamets gadol qatan: pronominal suffixes
-#
+# 
 # Usually, rules involving closed unaccented syllables trigger the qatan interpretation of a qamets.
 # But in pronominal suffixes a qamets is always gadol.
 # We detect these cases and suppress the gamets-as-qatan interpretation there.
-#
+# 
 # ### Look up the cases
+
+# In[ ]:
 
 
 qq_prs_words = set()
 qq_prs_specials = []
+
+
+# In[58]:
+
 
 TF.info("Finding qamets qatan in pronominal suffixes")
 for w in F.otype.s("word"):
@@ -2925,8 +3407,14 @@ TF.info("{} potential cases".format(len(qq_prs_specials)))
 
 # ### Show the cases
 
+# In[ ]:
+
 
 TF.info("Showing prs cases")
+
+
+# In[ ]:
+
 
 ncorr = 0
 ngood = 0
@@ -2948,9 +3436,14 @@ for (w, orig, word) in qq_prs_specials:
         comment = "qamets: gadol maintained in pronominal suffix"
     pcases.append((corr, wordph_ns, wordph, lex, orig, w, comment))
 
+
+# In[59]:
+
+
 showcases(
     "qamets prs",
     "{} lexemes".format(len(prs_lexemes)),
     pcases,
     order=True,
 )
+
