@@ -1,11 +1,12 @@
 @node
 @author=BHSA Data: Constantijn Sikkel; Phono Notebook: Dirk Roorda
 @coreData=BHSA
-@coreVersion=2021
-@source=Phono Notebook applied to BHSA Data
+@description=🆗 phonological transcription (bᵊ rēšˌîṯ bārˈā ʔᵉlōhˈîm)
+@provenance=computed by the phono notebook, see https://github.com/ETCBC/phono
 @valueType=str
+@version=2021
 @writtenBy=Text-Fabric
-@dateWritten=2021-11-30T15:33:29Z
+@dateWritten=2021-12-09T14:25:55Z
 
 bᵊ
 rēšˌîṯ
