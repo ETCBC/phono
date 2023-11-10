@@ -41,7 +41,7 @@ Algorithm to provide phonological transcriptions of all words in the Hebrew Bibl
 
 The results of this study are being delivered in several forms, summarized here.
 
-* **Text and dataview SHEBANQ**
+* **Text and data view SHEBANQ**
   the Hebrew text can be displayed in phonetic transcription, and it is possible
   to query for these transcription with MQL queries on the website;
 * **Data module**: a set of 
